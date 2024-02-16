@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot-news" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="bingbot" content="noindex" />
+    <meta name="duckduckbot" content="noindex" />
+    <meta name="baiduspider" content="noindex" />
+    <meta name="yandexbot" content="noindex" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6864262569282942"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fuggles&family=Nunito+Sans:opsz,wght@6..12,400;6..12,800;6..12,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <title>NoClue | New suggestion</title>
+
+    <style>
+      #lofasz,
+      #recordType {
+        display: none;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .aktiv {
+        color: rgb(216, 34, 26);
+        font-variation-settings: "wght" 800, "FILL" 1;
+      }
+
+      .tiltott {
+        color: rgb(170, 168, 168);
+        cursor: not-allowed;
+      }
+      #ribanc {
+        width: 100%;
+      }
+      .kutya {
+        display: block;
+        vertical-align: top;
+        padding-right: 40px;
+      }
+      .kutya2 {
+        display: block;
+        width: 100%;
+        padding-right: 0px;
+      }
+      #ribanc2 {
+        width: 100%;
+      }
+
+      @media all and (min-width: 600px) {
+        .hirdetes {
+          display: none;
+        }
+        .kutya {
+          display: inline-block;
+        }
+        .kutya2 {
+          display: inline-block;
+          width: 20%;
+          padding-right: 10px;
+        }
+        #recordType {
+          width: 20%;
+        }
+        #whatWasShownDropdown2 {
+          width: 20%;
+        }
+        select {
+          width: 100%;
+        }
+        tr td.kutya2:last-child {
+          padding-right: 0px;
+        }
+        tr {
+          vertical-align: bottom;
+        }
+      }
+    </style>
+    <meta name="application-name" content="NoClue!" />
+    <meta name="author" content="Memmuze Team" />
+    <meta
+      name="description"
+      content="Unlock the secrets to victory in the classic board game, Clue(do). NoClue! offers you an user-friendly way to find all the necessary clues for a spot-on accusation. Explore educational insights, and a sleek design to enhance your gameplay. Discover the winning moves – start your journey to Clue(do) mastery today!"
+    />
+    <meta
+      name="keywords"
+      content="Clue strategy, Clue winning strategy, Clue
+    win, Clue solver, Clue program, Clue algorythm, Clue solve, Clue, board
+    game, board game tips,  Clue solution, Clue how to win, Clue calculator,
+    Clue sheet, Clue guide, Clue card, Clue wikihow Cluedo strategy, Cluedo
+    winning strategy, Cluedo win, Cluedo solver, Cluedo program, Cluedo
+    algorythm, Cluedo solve, Cluedo, board game, board game tips, Cluedo
+    solution, Cluedo how to win, Cluedo calculator, Cluedo sheet, Cluedo guide,
+    Cluedo card, Cluedo wikihow"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeForm();
+
+        function initializeForm() {
+          var recordTypeDropdown = document.getElementById("recordType");
+          var poolCardCount = localStorage.getItem("Poolcardcount");
+          var alapPOOL = localStorage.getItem("AlapPOOL");
+          console.log(alapPOOL);
+          if (alapPOOL !== null) {
+            // Disable dropdown and set value to "dropdown"
+            recordTypeDropdown.disabled = true;
+            recordTypeDropdown.value = "dropdown";
+          } else if (poolCardCount !== "0" && alapPOOL === null) {
+            // Disable dropdown and select checkbox
+            recordTypeDropdown.disabled = true;
+            recordTypeDropdown.value = "checkbox";
+          }
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLocalStorageForIcons();
+      });
+
+      function checkLocalStorageForIcons() {
+        var jatekosok2 = localStorage.getItem("jatekosok");
+
+        // Check if jatekosok2 array is empty or not
+        if (!jatekosok2 || jatekosok2.trim() === "") {
+          // Array is empty, add "tiltott" class to icons
+          addTiltottClassToIcons();
+        }
+        var alapadat = localStorage.getItem("AlapYOU");
+        if (alapadat || alapadat !== null) {
+          var ownClueIteam = document.getElementById("ownClueIteam");
+          ownClueIteam.classList.add("tiltott");
+        }
+        if (alapadat == null) {
+          addTiltottClassToIcons();
+        }
+        var medence = localStorage.getItem("AlapPOOL");
+        var medenceszam = localStorage.getItem("Poolcardcount");
+        if (medenceszam !== "0" && medence == null) {
+          ovtilt();
+        }
+      }
+
+      function addTiltottClassToIcons() {
+        // Get icon elements and add the "tiltott" class
+        var newClueItem = document.getElementById("newClueItem");
+        var overviewItem = document.getElementById("overviewItem");
+
+        newClueItem.classList.add("tiltott");
+        overviewItem.classList.add("tiltott");
+      }
+
+      function ovtilt() {
+        var overviewItem = document.getElementById("overviewItem");
+        overviewItem.classList.add("tiltott");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a href="index.html"><img src="nclogo.png" /></a>
+      </div>
+      <div class="content">
+        <div id="recordCluePage" class="page">
+          <h2 id="pusztulj"></h2>
+          <label for="recordType" id="lofasz">Select Record Type:</label>
+          <select id="recordType" onchange="showFormElements()">
+            <option value="dropdown">A suggestion</option>
+            <option value="checkbox">Leftover cards</option>
+          </select>
+
+          <div id="dropdownContainer" style="display: none">
+            <table id="ribanc2">
+              <tr>
+                <td class="kutya2">
+                  <h4>Who asked?</h4>
+                  <select id="myDropdown"></select>
+                </td>
+                <td class="kutya2">
+                  <h4>Which suspect?</h4>
+                  <select id="suspects">
+                    <option value="Plum">Plum</option>
+                    <option value="White">White</option>
+                    <option value="Scarlet">Scarlet</option>
+                    <option value="Green">Green</option>
+                    <option value="Mustard">Mustard</option>
+                    <option value="Peacock">Peacock</option>
+                  </select>
+                </td>
+                <td class="kutya2">
+                  <h4>Which weapon?</h4>
+                  <select id="weapons">
+                    <option value="Rope">Rope</option>
+                    <option value="Dagger">Dagger</option>
+                    <option value="Wrench">Wrench</option>
+                    <option value="Pistol">Pistol</option>
+                    <option value="Candlestick">Candlestick</option>
+                    <option value="Lead Pipe">Lead Pipe</option>
+                  </select>
+                </td>
+                <td class="kutya2">
+                  <h4>Which location?</h4>
+                  <select id="locations">
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Game Room">Game Room</option>
+                    <option value="Study">Study</option>
+                    <option value="Dining Room">Dining Room</option>
+                    <option value="Garage">Garage</option>
+                    <option value="Living Room">Living Room</option>
+                    <option value="Kitchen">Kitchen</option>
+                    <option value="Bedroom">Bedroom</option>
+                    <option value="Bathroom">Bathroom</option>
+                  </select>
+                </td>
+                <td class="kutya2">
+                  <h4>Who showed?</h4>
+                  <select id="myDropdown2"></select>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div id="checkboxContainer" style="display: none">
+            <input type="text" id="searchInput" placeholder="Search..." />
+
+            <form id="checkboxForm">
+              <table id="ribanc">
+                <tr>
+                  <td class="kutya">
+                    <h3>Suspects</h3>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Plum"
+                        name="Plum"
+                        value="Plum"
+                      />
+                      Plum
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="White"
+                        name="White"
+                        value="White"
+                      />
+                      White
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Scarlet"
+                        name="Scarlet"
+                        value="Scarlet"
+                      />
+                      Scarlet
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Green"
+                        name="Green"
+                        value="Green"
+                      />
+                      Green
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Mustard"
+                        name="Mustard"
+                        value="Mustard"
+                      />
+                      Mustard
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Peacock"
+                        name="Peacock"
+                        value="Peacock"
+                      />
+                      Peacock
+                    </label>
+                  </td>
+                  <td class="kutya">
+                    <h3>Weapons</h3>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Rope"
+                        name="Rope"
+                        value="Rope"
+                      />
+                      Rope
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Dagger"
+                        name="Dagger"
+                        value="Dagger"
+                      />
+                      Dagger
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Wrench"
+                        name="Wrench"
+                        value="Wrench"
+                      />
+                      Wrench
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Pistol"
+                        name="Pistol"
+                        value="Pistol"
+                      />
+                      Pistol
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Candlestick"
+                        name="Candlestick"
+                        value="Candlestick"
+                      />
+                      Candlestick
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="LeadPipe"
+                        name="Lead Pipe"
+                        value="Lead Pipe"
+                      />
+                      Lead Pipe
+                    </label>
+                  </td>
+                  <td class="kutya">
+                    <h3>Rooms</h3>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Courtyard"
+                        name="Courtyard"
+                        value="Courtyard"
+                      />
+                      Courtyard
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="GameRoom"
+                        name="Game Room"
+                        value="Game Room"
+                      />
+                      Game Room
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Study"
+                        name="Study"
+                        value="Study"
+                      />
+                      Study
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="DiningRoom"
+                        name="DiningRoom"
+                        value="Dining Room"
+                      />
+                      Dining Room
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Garage"
+                        name="Garage"
+                        value="Garage"
+                      />
+                      Garage
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="LivingRoom"
+                        name="LivingRoom"
+                        value="Living Room"
+                      />
+                      Living Room
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Kitchen"
+                        name="Kitchen"
+                        value="Kitchen"
+                      />
+                      Kitchen
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Bedroom"
+                        name="Bedroom"
+                        value="Bedroom"
+                      />
+                      Bedroom
+                    </label>
+                    <label>
+                      <input
+                        type="checkbox"
+                        id="Bathroom"
+                        name="Bathroom"
+                        value="Bathroom"
+                      />
+                      Bathroom
+                    </label>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+          <h4 id="whatWasShownLabel" style="display: none">
+            What was shown to you?
+          </h4>
+          <select id="whatWasShownDropdown2" style="display: none"></select>
+          <button onclick="submitData()" class="mainaction" id="submitButton">
+            SUBMIT
+          </button>
+          <button onclick="submitData()" class="mainaction" id="submitButton2">
+            SUBMIT
+          </button>
+        </div>
+        <span
+          onclick="megmutat()"
+          class="material-symbols-outlined info"
+          id="infogomb"
+        >
+          help
+        </span>
+        <ol class="s3">
+          <li>
+            <p>
+              If there are any leftover cards, you can select those on this
+              page.
+            </p>
+          </li>
+          <li>
+            <p>
+              You can record each player's suggestions here. If no one could
+              show a card, select the "No One" option in the "Who showed" menu.
+            </p>
+          </li>
+          <li>
+            <p>
+              If someone showed you a card, select the correct one and hit
+              submit.
+            </p>
+          </li>
+
+          <p style="color: rgb(255, 230, 102); font-weight: bold">
+            Beware that the amount of selected leftover cards is calculated by
+            the game engine.
+          </p>
+        </ol>
+        <div class="hirdetes">
+          <div class="hirkep"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hird2">
+      <div class="hirdetes2">
+        <div class="hirkep"></div>
+      </div>
+    </div>
+    <div class="navbar">
+      <div class="box">
+        <div class="item active">
+          <a href="index.html">
+            <span class="material-symbols-outlined"> home </span>
+          </a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="item">
+          <a href="players.html">
+            <span class="material-symbols-outlined" id="ownClueIteam">
+              person_add
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="item">
+          <a href="#">
+            <span class="material-symbols-outlined aktiv"> library_add </span>
+          </a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="item">
+          <a href="overview.html">
+            <span class="material-symbols-outlined szinezodo" id="overviewItem">
+              analytics
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="item">
+          <a href="info.html">
+            <span class="material-symbols-outlined"> info </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function megmutat() {
+        var szovegList = document.getElementsByClassName("s2");
+
+        for (var i = 0; i < szovegList.length; i++) {
+          var szoveg = szovegList[i];
+
+          if (szoveg.style.display === "block" || szoveg.style.display === "") {
+            szoveg.style.display = "none";
+          } else {
+            szoveg.style.display = "block";
+          }
+        }
+      }
+    </script>
+
+    <script>
+      var infoButton = document.querySelector(".info");
+
+      infoButton.addEventListener("mouseover", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 1";
+        infoButton.style.color = "white";
+      });
+
+      infoButton.addEventListener("mouseout", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the "What was shown" dropdown and label
+        var whatWasShownDropdown = document.getElementById(
+          "whatWasShownDropdown2"
+        );
+        var whatWasShownLabel = document.getElementById("whatWasShownLabel");
+
+        // Attach change event listeners to the suspects, weapons, and locations dropdowns
+        document
+          .getElementById("suspects")
+          .addEventListener("change", function () {
+            updateWhatWasShownDropdown();
+          });
+
+        document
+          .getElementById("weapons")
+          .addEventListener("change", function () {
+            updateWhatWasShownDropdown();
+          });
+
+        document
+          .getElementById("locations")
+          .addEventListener("change", function () {
+            updateWhatWasShownDropdown();
+          });
+        document
+          .getElementById("myDropdown")
+          .addEventListener("change", function () {
+            updateWhatWasShownDropdown();
+          });
+
+        document
+          .getElementById("myDropdown2")
+          .addEventListener("change", function () {
+            updateWhatWasShownDropdown();
+          });
+
+        // Function to update the "What was shown" dropdown based on selected values
+        function updateWhatWasShownDropdown() {
+          // Get the selected values from suspects, weapons, and locations dropdowns
+          var suspectsValue = document.getElementById("suspects").value;
+          var weaponsValue = document.getElementById("weapons").value;
+          var locationsValue = document.getElementById("locations").value;
+
+          if (
+            myDropdown.value === "You" &&
+            myDropdown2.value !== "You" &&
+            myDropdown2.value !== "noone"
+          ) {
+            // Display "What was shown" dropdown and label
+            whatWasShownLabel.style.display = "block";
+            whatWasShownDropdown.style.display = "block";
+
+            // Clear existing options
+            whatWasShownDropdown.innerHTML = "";
+
+            // Add new options based on selected values
+            addOptionToDropdown(suspectsValue);
+            addOptionToDropdown(weaponsValue);
+            addOptionToDropdown(locationsValue);
+            resultList.push(
+              document.getElementById("whatWasShownDropdown2").value
+            );
+          } else {
+            whatWasShownLabel.style.display = "none";
+            whatWasShownDropdown.style.display = "none";
+          }
+        }
+        // Function to add an option to the "What was shown" dropdown
+        function addOptionToDropdown(optionText) {
+          var option = document.createElement("option");
+          option.value = optionText;
+          option.text = optionText;
+          whatWasShownDropdown.appendChild(option);
+        }
+
+        // Initial update to set the correct visibility and options
+        updateWhatWasShownDropdown();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve Poolcardcount from localStorage
+        var poolCardCount = localStorage.getItem("Poolcardcount");
+
+        // Get the recordType dropdown element
+        var recordTypeDropdown = document.getElementById("recordType");
+        var rtszoveg = document.getElementById("lofasz");
+
+        // Check if poolCardCount is 0, disable the dropdown
+        if (parseInt(poolCardCount) === 0) {
+          recordTypeDropdown.disabled = true;
+          recordTypeDropdown.style.display = "none";
+          rtszoveg.style.display = "none";
+        }
+
+        var medszov = JSON.parse(localStorage.getItem("AlapPOOL"));
+        if (!("" in medszov)) {
+          recordTypeDropdown.style.display = "none";
+          rtszoveg.style.display = "none";
+        }
+      });
+    </script>
+
+    <script>
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function () {
+          const searchValue = this.value.toLowerCase();
+          const labels = document.querySelectorAll("#checkboxForm label");
+
+          labels.forEach(function (label) {
+            const labelText = label.textContent.toLowerCase();
+            if (labelText.includes(searchValue)) {
+              label.style.display = "block";
+            } else {
+              label.style.display = "none";
+            }
+          });
+        });
+
+      const checkboxForm = document.getElementById("checkboxForm");
+      const selectedList = document.getElementById("selectedList");
+
+      checkboxForm.addEventListener("change", function () {
+        selectedList.innerHTML = ""; // Clear the previous selections
+
+        const checkboxes = document.querySelectorAll(
+          '#checkboxForm input[type="checkbox"]:checked'
+        );
+
+        const sortedItems = Array.from(checkboxes)
+          .map((checkbox) => checkbox.parentElement.textContent.trim())
+          .sort();
+
+        sortedItems.forEach(function (item) {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          selectedList.appendChild(listItem);
+        });
+      });
+    </script>
+    <script>
+      // ... (same as before) ...
+
+      function showFormElements() {
+        var recordType = document.getElementById("recordType").value;
+
+        if (recordType === "dropdown") {
+          document.getElementById("dropdownContainer").style.display = "block";
+          document.getElementById("checkboxContainer").style.display = "none";
+        } else if (recordType === "checkbox") {
+          document.getElementById("dropdownContainer").style.display = "none";
+          document.getElementById("checkboxContainer").style.display = "block";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Call showFormElements when the page loads to set the initial display
+        showFormElements();
+
+        // Retrieve the array from localStorage
+        var retrievedArray = JSON.parse(localStorage.getItem("jatekosok2"));
+
+        // Check if retrievedArray is not null or undefined
+        if (retrievedArray) {
+          // Get the select element by its ID
+          var myDropdown = document.getElementById("myDropdown");
+          var myDropdown2 = document.getElementById("myDropdown2");
+
+          // Iterate over the array and create an option element for each item
+          retrievedArray.forEach(function (item) {
+            var option = document.createElement("option");
+            option.value = item;
+            option.text = item;
+            myDropdown.appendChild(option);
+
+            // Create options for myDropdown2 based on the values of myDropdown
+            var option2 = document.createElement("option");
+            option2.value = item;
+            option2.text = item;
+            myDropdown2.appendChild(option2);
+          });
+
+          var nooneOption = document.createElement("option");
+          nooneOption.value = "noone";
+          nooneOption.text = "No One";
+          myDropdown2.appendChild(nooneOption);
+
+          // Debugging: alert the retrievedArray
+          //  alert("Retrieved Array: " + JSON.stringify(retrievedArray));
+        } else {
+          window.location.href = "players.html";
+        }
+      });
+    </script>
+
+    <script src="script.js"></script>
+
+    <script>
+      function showFormElements() {
+        var recordType = document.getElementById("recordType").value;
+        var dropdownContainer = document.getElementById("dropdownContainer");
+        var checkboxContainer = document.getElementById("checkboxContainer");
+
+        if (recordType === "dropdown") {
+          dropdownContainer.style.display = "block";
+          checkboxContainer.style.display = "none";
+        } else if (recordType === "checkbox") {
+          dropdownContainer.style.display = "none";
+          checkboxContainer.style.display = "block";
+        }
+      }
+
+      function submitData() {
+        var recordType = document.getElementById("recordType").value;
+        var resultList = [];
+
+        if (recordType === "dropdown") {
+          // A guess option selected
+          var myDropdownValue = document.getElementById("myDropdown").value;
+          var suspectsValue = document.getElementById("suspects").value;
+          var weaponsValue = document.getElementById("weapons").value;
+          var locationsValue = document.getElementById("locations").value;
+          var myDropdown2Value = document.getElementById("myDropdown2").value;
+
+          resultList.push(
+            myDropdownValue,
+            suspectsValue,
+            weaponsValue,
+            locationsValue,
+            myDropdown2Value
+          );
+
+          if (
+            myDropdownValue === "You" &&
+            myDropdown2Value !== "You" &&
+            myDropdown2Value !== "No one"
+          ) {
+            var whatWasShownDropdown2Value = document.getElementById(
+              "whatWasShownDropdown2"
+            ).value;
+            resultList.push(whatWasShownDropdown2Value);
+          }
+        } else if (recordType === "checkbox") {
+          // Pool option selected
+          var checkboxes = document.querySelectorAll(
+            "input[type=checkbox]:checked"
+          );
+
+          checkboxes.forEach(function (checkbox) {
+            resultList.push(checkbox.value);
+          });
+
+          // Save to alapPOOL
+          localStorage.setItem("AlapPOOL", JSON.stringify(resultList));
+
+          // Do not add to ClueList when recordType is "Pool"
+          return;
+        }
+
+        // Retrieve the existing clueList from localStorage
+        var existingClueList = localStorage.getItem("clueList");
+
+        // Convert the existing clueList string to an array
+        var existingClueListArray = existingClueList
+          ? JSON.parse(existingClueList)
+          : [];
+
+        // Check for duplicate submissions in the entire clueList
+        var submissionString = JSON.stringify(resultList);
+        if (
+          existingClueListArray.some(
+            (submission) => JSON.stringify(submission) === submissionString
+          )
+        ) {
+          // Handle duplicate submission, e.g., display an error message
+          alert(
+            "Duplicate submission detected. Please make a different submission."
+          );
+          return;
+        }
+
+        // Add the new submission to the existingClueListArray
+        existingClueListArray.push(resultList);
+
+        // Convert the array back to a string using JSON.stringify
+        var newSubmissionString = JSON.stringify(existingClueListArray);
+
+        // Save the updated clueList to localStorage
+        localStorage.setItem("clueList", newSubmissionString);
+        window.location.href = "newclue.html";
+      }
+    </script>
+    <script>
+      // ... (your existing script content) ...
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // ... (your existing code) ...
+
+        // Retrieve the Poolcardcount from localStorage
+        var poolCardCount = localStorage.getItem("Poolcardcount");
+
+        var maxCount = parseInt(poolCardCount);
+
+        console.log("maxCount:", maxCount);
+
+        // Get the submit button element
+        var submitButton = document.getElementById("submitButton2");
+
+        // Hide the submit button initially
+        submitButton.style.display = "none";
+
+        // Attach a change event listener to the checkboxes
+        document
+          .getElementById("checkboxForm")
+          .addEventListener("change", function () {
+            const checkboxes = document.querySelectorAll(
+              '#checkboxForm input[type="checkbox"]:checked'
+            );
+            // Display the submit button based on the selected checkboxes count
+            submitButton.style.display =
+              checkboxes.length === maxCount ? "block" : "none";
+          });
+      });
+
+      // ... (your existing script content) ...
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve AlapPOOL from localStorage
+        var alapPOOL = localStorage.getItem("AlapPOOL");
+
+        // Get the recordType dropdown element
+        var recordTypeDropdown = document.getElementById("recordType");
+
+        // Check if alapPOOL is not empty, disable the dropdown
+        if (alapPOOL && alapPOOL.trim() !== "") {
+          recordTypeDropdown.disabled = true;
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve the Poolcardcount from localStorage
+        var poolCardCount = localStorage.getItem("Poolcardcount");
+
+        var maxCount = parseInt(poolCardCount);
+
+        console.log("maxCount:", maxCount);
+
+        // Get the submit buttons elements
+        var submitButton = document.getElementById("submitButton");
+        var submitButton2 = document.getElementById("submitButton2");
+
+        // Attach change event listeners
+        document
+          .getElementById("recordType")
+          .addEventListener("change", function () {
+            updateButtonsVisibility();
+          });
+
+        document
+          .getElementById("checkboxForm")
+          .addEventListener("change", function () {
+            updateButtonsVisibility();
+          });
+
+        // Function to update button visibility based on recordType and selected checkboxes count
+        function updateButtonsVisibility() {
+          var recordType = document.getElementById("recordType").value;
+
+          // Display buttons based on the selected recordType
+          if (recordType === "dropdown") {
+            submitButton.style.display = "block";
+            submitButton2.style.display = "none";
+          } else if (recordType === "checkbox") {
+            submitButton.style.display = "none";
+            submitButton2.style.display =
+              checkboxes.length === maxCount ? "none" : "block";
+          }
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve AlapPOOL from localStorage
+        var alapPOOL = localStorage.getItem("AlapPOOL");
+
+        // Get the recordType dropdown element
+        var recordTypeDropdown = document.getElementById("recordType");
+
+        // Check if alapPOOL is not empty, disable the dropdown
+        if (alapPOOL && alapPOOL.trim() !== "") {
+          recordTypeDropdown.disabled = true;
+        }
+      });
+      submitButton2.addEventListener("click", function () {
+        // Redirect to overview.html when submitButton2 is clicked
+        window.location.href = "overview.html";
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the submit button element
+        var submitButton = document.getElementById("submitButton");
+
+        // Attach change event listeners to myDropdown and myDropdown2
+        document
+          .getElementById("myDropdown")
+          .addEventListener("change", function () {
+            updateSubmitButtonVisibility();
+          });
+
+        document
+          .getElementById("myDropdown2")
+          .addEventListener("change", function () {
+            updateSubmitButtonVisibility();
+          });
+
+        // Function to update submit button visibility based on myDropdown and myDropdown2 values
+        function updateSubmitButtonVisibility() {
+          var myDropdownValue = document.getElementById("myDropdown").value;
+          var myDropdown2Value = document.getElementById("myDropdown2").value;
+
+          // Display the submit button only if myDropdown and myDropdown2 have different values
+          submitButton.style.display =
+            myDropdownValue !== myDropdown2Value ? "block" : "none";
+        }
+        updateSubmitButtonVisibility();
+      });
+
+      // ... (rest of your existing code) ...
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Retrieve AlapPOOL from localStorage
+        var alapPOOL = localStorage.getItem("alapPOOL");
+
+        // Get the recordType dropdown element
+        var recordTypeDropdown = document.getElementById("recordType");
+
+        // Check if alapPOOL is not empty, disable the "Pool" option
+        if (alapPOOL && alapPOOL.trim() !== "") {
+          recordTypeDropdown.querySelector(
+            'option[value="checkbox"]'
+          ).disabled = true;
+        }
+      });
+    </script>
+    <script src="python2.js"></script>
+    <script>
+      enadat();
+      medenceadat();
+      xsor();
+      xoszlop();
+      bemenetek = JSON.parse(localStorage.getItem("clueList"));
+      for (var k = 0; k < bemenetek.length; k++) {
+        sor = bemenetek[k];
+        xiro(sor);
+        szamiro(sor);
+        if (sor.length == 6) {
+          vanneki(sor);
+        }
+        szamirto();
+        xsor();
+        xoszlop();
+      }
+    </script>
+
+    <script>
+      function vsx() {
+        mennyinekkellenie =
+          JSON.parse(localStorage.getItem("jatekosok2")).length + 1;
+        let lista = ["", "", ""];
+        let szemelyek = adatok.slice(0, 6);
+        let eszkozok = adatok.slice(6, 12);
+        let helyek = adatok.slice(12);
+
+        for (let i = 0; i < szemelyek.length; i++) {
+          let subarray = szemelyek[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[0] = subarray[0];
+          }
+        }
+
+        for (let i = 0; i < eszkozok.length; i++) {
+          let subarray = eszkozok[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[1] = subarray[0];
+          }
+        }
+
+        for (let i = 0; i < helyek.length; i++) {
+          let subarray = helyek[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[2] = subarray[0];
+          }
+        }
+
+        if (!("" in lista)) {
+          localStorage.setItem("vadseged", lista);
+        }
+        console.log(lista);
+      }
+      vsx();
+    </script>
+    <script>
+      function vslog() {
+        let lista = localStorage.getItem("vadseged").split(",") || [];
+        szemelylog = [];
+        eszkozlog = [];
+        helylog = [];
+        for (let i = 0; i < adatok.length; i++) {
+          let subarray = adatok[i];
+          if (i < 6 && adatok[i][subarray.length - 1] == true) {
+            szemelylog.push(adatok[i][subarray.length - 1]);
+          }
+
+          if (i >= 6 && i < 12 && adatok[i][subarray.length - 1] == true) {
+            eszkozlog.push(adatok[i][subarray.length - 1]);
+          }
+          if (i >= 12 && adatok[i][subarray.length - 1] == true) {
+            helylog.push(adatok[i][subarray.length - 1]);
+          }
+        }
+
+        if (szemelylog.length == 1 && lista[0] == "") {
+          for (let i = 0; i < 6; i++) {
+            let subarray = adatok[i];
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[0] = adatok[i][0];
+            }
+          }
+        }
+
+        if (eszkozlog.length == 1 && lista[1] == "") {
+          let subarray = adatok[i];
+          for (let i = 6; i < 12; i++) {
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[1] = adatok[i][0];
+            }
+          }
+        }
+
+        if (helylog.length == 1 && lista[2] == "") {
+          let subarray = adatok[i];
+          for (let i = 12; i < adatok.length; i++) {
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[2] = adatok[i][0];
+            }
+          }
+        }
+        localStorage.setItem("vadseged2", lista);
+      }
+      vslog();
+    </script>
+
+    <script>
+      function szinezo() {
+        const listaArray = localStorage.getItem("vadseged2").split(",");
+        if (
+          listaArray[0] !== "" ||
+          listaArray[1] !== "" ||
+          listaArray[2] !== ""
+        ) {
+          // Get the element with the class "szinezodo"
+          const szinezodoElement = document.querySelector(".szinezodo");
+
+          // Check if the element is found before modifying the style
+          if (szinezodoElement) {
+            // Set the inline style to green
+            szinezodoElement.style.color = "rgb(255, 230, 102)";
+          }
+        }
+
+        if (
+          listaArray[0] !== "" &&
+          listaArray[1] !== "" &&
+          listaArray[2] !== ""
+        ) {
+          // Get the element with the class "szinezodo"
+          const szinezodoElement = document.querySelector(".szinezodo");
+
+          // Check if the element is found before modifying the style
+          if (szinezodoElement) {
+            // Set the inline style to green
+            szinezodoElement.style.color = "rgb(96, 225, 135)";
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        szinezo();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initial setup on content loaded
+        updatePusztuljValue();
+
+        // Add event listener for changes in the select element
+        document
+          .getElementById("recordType")
+          .addEventListener("change", function () {
+            updatePusztuljValue();
+          });
+      });
+
+      function updatePusztuljValue() {
+        var recordTypeSelect = document.getElementById("recordType");
+        var pusztuljInput = document.getElementById("pusztulj");
+
+        if (recordTypeSelect.value === "checkbox") {
+          pusztuljInput.textContent = "Leftover cards";
+        } else if (recordTypeSelect.value === "dropdown") {
+          pusztuljInput.textContent = "Record Suggestion";
+        }
+      }
+    </script>
+    <script>
+      function megmutat() {
+        var szovegList = document.getElementsByClassName("s3");
+
+        for (var i = 0; i < szovegList.length; i++) {
+          var szoveg = szovegList[i];
+
+          if (szoveg.style.display === "block" || szoveg.style.display === "") {
+            szoveg.style.display = "none";
+          } else {
+            szoveg.style.display = "block";
+          }
+        }
+      }
+    </script>
+    <script>
+      var infoButton = document.querySelector(".info");
+
+      infoButton.addEventListener("mouseover", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 1";
+        infoButton.style.color = "white";
+      });
+
+      infoButton.addEventListener("mouseout", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      });
+    </script>
+
+    <script>
+      window.onload = function () {
+        var infoButton = document.querySelector(".info");
+
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        megmutat();
+      });
+    </script>
+  </body>
+</html>

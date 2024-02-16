@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot-news" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="bingbot" content="noindex" />
+    <meta name="duckduckbot" content="noindex" />
+    <meta name="baiduspider" content="noindex" />
+    <meta name="yandexbot" content="noindex" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6864262569282942"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fuggles&family=Nunito+Sans:opsz,wght@6..12,400;6..12,800;6..12,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <title>NoClue | Overview</title>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .mso {
+        font-size: 40px;
+        font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0;
+      }
+      .aktiv {
+        color: rgb(216, 34, 26);
+        font-variation-settings: "wght" 800, "FILL" 1;
+      }
+      .tiltott {
+        color: rgb(170, 168, 168);
+        cursor: not-allowed;
+      }
+      @media all and (min-width: 600px) {
+        .hirdetes {
+          display: none;
+        }
+      }
+    </style>
+    <meta name="application-name" content="NoClue!" />
+    <meta name="author" content="Memmuze Team" />
+    <meta
+      name="description"
+      content="Unlock the secrets to victory in the classic board game, Clue(do). NoClue! offers you an user-friendly way to find all the necessary clues for a spot-on accusation. Explore educational insights, and a sleek design to enhance your gameplay. Discover the winning moves – start your journey to Clue(do) mastery today!"
+    />
+    <meta
+      name="keywords"
+      content="Clue strategy, Clue winning strategy, Clue
+    win, Clue solver, Clue program, Clue algorythm, Clue solve, Clue, board
+    game, board game tips,  Clue solution, Clue how to win, Clue calculator,
+    Clue sheet, Clue guide, Clue card, Clue wikihow Cluedo strategy, Cluedo
+    winning strategy, Cluedo win, Cluedo solver, Cluedo program, Cluedo
+    algorythm, Cluedo solve, Cluedo, board game, board game tips, Cluedo
+    solution, Cluedo how to win, Cluedo calculator, Cluedo sheet, Cluedo guide,
+    Cluedo card, Cluedo wikihow"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var alapadat = localStorage.getItem("AlapYOU");
+        if (alapadat == null) {
+          window.location.href = "owncards.html";
+        }
+        var medence = localStorage.getItem("AlapPOOL");
+        var medenceszam = localStorage.getItem("Poolcardcount");
+        if (medenceszam !== "0" && medence == null) {
+          window.location.href = "owncards.html";
+        }
+      });
+    </script>
+    <script>
+      function shrinkSubarraysWithNoone() {
+        // Retrieve the 'clueList' array from localStorage
+        var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+        // Iterate through each subarray in clueList
+        for (var i = 0; i < clueList.length; i++) {
+          var subarray = clueList[i];
+
+          // Check if the subarray's length exceeds 5 and "noone" is at the 4th index
+          if (subarray.length > 5 && subarray[4] === "noone") {
+            // Shrink the subarray so that "noone" is the last value
+            subarray.splice(5, subarray.length - 4);
+            subarray[4] = subarray[0];
+          }
+          if (subarray[4] === "noone") {
+            subarray[4] = subarray[0];
+          }
+
+          // Save the updated 'clueList' to localStorage
+          localStorage.setItem("clueList", JSON.stringify(clueList));
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLocalStorageForIcons();
+        shrinkSubarraysWithNoone();
+      });
+
+      function checkLocalStorageForIcons() {
+        var alapadat = localStorage.getItem("AlapYOU");
+        if (alapadat || alapadat !== null) {
+          var ownClueIteam = document.getElementById("ownClueIteam");
+          ownClueIteam.classList.add("tiltott");
+        }
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if "jatekosok" is not empty in local storage
+        var jatekosokValue = localStorage.getItem("jatekosok");
+
+        if (!jatekosokValue || jatekosokValue.trim() === "") {
+          // If empty or not found, redirect to "players.html"
+          window.location.href = "players.html";
+        }
+      });
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a href="index.html"><img src="nclogo.png" /></a>
+      </div>
+
+      <div class="content">
+        <div id="vadseged">
+          <h3 id="felirat">Clue found!</h3>
+          <p id="szemely"></p>
+          <p id="eszkoz"></p>
+          <p id="helyszin"></p>
+          <span
+            onclick="megmutat()"
+            class="material-symbols-outlined info"
+            id="infogomb2"
+          >
+            info
+          </span>
+          <p id="segitseg">
+            This card is in the envelope. Make sure to avoid raising suspicion
+            to this information. Try suggesting with other pieces involved.
+          </p>
+          <div class="hirdetes">
+            <div class="hirkep"></div>
+          </div>
+          <span onclick="megmutat2()" class="material-symbols-outlined info2">
+            help
+          </span>
+          <ol class="s3">
+            <li>
+              <p>
+                You can overview the game's progress in a table view based on
+                your inputs.
+              </p>
+            </li>
+            <li>
+              <p>
+                If you wish to remove the last suggestion, click the Undo button
+                at the bottom of the page.
+              </p>
+            </li>
+            <li>
+              <p>
+                If a clue in the envelope has been found, the page's icon will
+                change color.
+              </p>
+            </li>
+          </ol>
+          <div class="s3">
+            <h4>Legend</h4>
+            <ol>
+              <li>
+                <p>"x" means that a player does not own that card.</p>
+              </li>
+              <li>
+                <p>"o" means that a player owns that card.</p>
+              </li>
+              <li>
+                <p>
+                  Numbers, like "1 2 etc." means that a player might own that
+                  card.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div id="table-container"></div>
+
+        <button id="undoButton" class="mainaction">UNDO</button>
+      </div>
+      <div class="hird2">
+        <div class="hirdetes2">
+          <div class="hirkep"></div>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="box">
+          <div class="item active">
+            <a href="index.html">
+              <span class="material-symbols-outlined"> home </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="players.html">
+              <span class="material-symbols-outlined" id="ownClueIteam">
+                person_add
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="item">
+            <a href="newclue.html">
+              <span class="material-symbols-outlined"> library_add </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="#">
+              <span class="material-symbols-outlined aktiv szinezodo">
+                analytics
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="info.html">
+              <span class="material-symbols-outlined"> info </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function megmutat2() {
+        var szovegList = document.getElementsByClassName("s3");
+
+        for (var i = 0; i < szovegList.length; i++) {
+          var szoveg = szovegList[i];
+
+          if (szoveg.style.display === "block" || szoveg.style.display === "") {
+            szoveg.style.display = "none";
+          } else {
+            szoveg.style.display = "block";
+          }
+        }
+      }
+    </script>
+
+    <script>
+      var infoButton2 = document.querySelector(".info2");
+
+      infoButton2.addEventListener("mouseover", function () {
+        infoButton2.style.fontVariationSettings = "'FILL' 1";
+        infoButton2.style.color = "white";
+      });
+
+      infoButton2.addEventListener("mouseout", function () {
+        infoButton2.style.fontVariationSettings = "'FILL' 0";
+        infoButton2.style.color = "white";
+      });
+    </script>
+
+    <script>
+      window.onload = function () {
+        var infoButton2 = document.querySelector(".info2");
+
+        infoButton2.style.fontVariationSettings = "'FILL' 0";
+        infoButton2.style.color = "white";
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        megmutat2();
+      });
+    </script>
+
+    <script>
+      function megmutat() {
+        var szoveg = document.getElementById("segitseg");
+        if (szoveg.style.display == "block") {
+          szoveg.style.display = "none";
+        } else {
+          szoveg.style.display = "block";
+        }
+      }
+    </script>
+
+    <script>
+      var infoButton = document.querySelector(".info");
+
+      infoButton.addEventListener("mouseover", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 1";
+        infoButton.style.color = "white";
+      });
+
+      infoButton.addEventListener("mouseout", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      });
+    </script>
+    <script>
+      window.onload = function () {
+        var infoButton = document.querySelector(".info");
+
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      };
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the button elements
+        var undoButton = document.getElementById("undoButton");
+
+        undoButton.addEventListener("click", function () {
+          if (confirm("Are you sure you want to undo the last submission?")) {
+            undoLastSubmission();
+          }
+        });
+
+        var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+        if (clueList.length > 0) {
+          // Set button text to "NEXT" if clueList is not empty
+          undoButton.style.display = "block";
+
+          var lastIndexOfClueList = clueList.length - 1;
+          // Set szamlalo to the last index of clueList
+          localStorage.setItem("meddig", lastIndexOfClueList.toString());
+        } else {
+          // Hide buttons if clueList is empty
+          undoButton.style.display = "none";
+        }
+
+        // Function to undo the last submission
+        function undoLastSubmission() {
+          var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+          if (clueList.length > 0) {
+            // Remove the last subarray from the 'clueList'
+            clueList.pop();
+
+            // Save the updated 'clueList' to localStorage
+            localStorage.setItem("clueList", JSON.stringify(clueList));
+            window.location.href = "overview.html";
+          }
+        }
+      });
+    </script>
+
+    <script src="python2.js"></script>
+    <script>
+      enadat();
+      medenceadat();
+      xsor();
+      xoszlop();
+      bemenetek = JSON.parse(localStorage.getItem("clueList"));
+      for (var k = 0; k < bemenetek.length; k++) {
+        sor = bemenetek[k];
+        xiro(sor);
+        szamiro(sor);
+        if (sor.length == 6) {
+          vanneki(sor);
+        }
+        szamirto();
+        xsor();
+        xoszlop();
+      }
+      tablazat();
+    </script>
+
+    <script>
+      function vsx() {
+        mennyinekkellenie =
+          JSON.parse(localStorage.getItem("jatekosok2")).length + 1;
+        let lista = ["", "", ""];
+        let szemelyek = adatok.slice(0, 6);
+        let eszkozok = adatok.slice(6, 12);
+        let helyek = adatok.slice(12);
+
+        for (let i = 0; i < szemelyek.length; i++) {
+          let subarray = szemelyek[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[0] = subarray[0];
+          }
+        }
+
+        for (let i = 0; i < eszkozok.length; i++) {
+          let subarray = eszkozok[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[1] = subarray[0];
+          }
+        }
+
+        for (let i = 0; i < helyek.length; i++) {
+          let subarray = helyek[i];
+          szamlalo = 0;
+          for (let j = 0; j < subarray.length; j++) {
+            if (subarray[j] == "x") {
+              szamlalo++;
+            }
+          }
+
+          if (szamlalo == mennyinekkellenie) {
+            lista[2] = subarray[0];
+          }
+        }
+
+        if (!("" in lista)) {
+          localStorage.setItem("vadseged", lista);
+        }
+        console.log(lista);
+      }
+      vsx();
+    </script>
+    <script>
+      function vslog() {
+        let lista = localStorage.getItem("vadseged").split(",") || [];
+        szemelylog = [];
+        eszkozlog = [];
+        helylog = [];
+        for (let i = 0; i < adatok.length; i++) {
+          let subarray = adatok[i];
+          if (i < 6 && adatok[i][subarray.length - 1] == true) {
+            szemelylog.push(adatok[i][subarray.length - 1]);
+          }
+
+          if (i >= 6 && i < 12 && adatok[i][subarray.length - 1] == true) {
+            eszkozlog.push(adatok[i][subarray.length - 1]);
+          }
+          if (i >= 12 && adatok[i][subarray.length - 1] == true) {
+            helylog.push(adatok[i][subarray.length - 1]);
+          }
+        }
+
+        if (szemelylog.length == 1 && lista[0] == "") {
+          for (let i = 0; i < 6; i++) {
+            let subarray = adatok[i];
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[0] = adatok[i][0];
+            }
+          }
+        }
+
+        if (eszkozlog.length == 1 && lista[1] == "") {
+          let subarray = adatok[i];
+          for (let i = 6; i < 12; i++) {
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[1] = adatok[i][0];
+            }
+          }
+        }
+
+        if (helylog.length == 1 && lista[2] == "") {
+          let subarray = adatok[i];
+          for (let i = 12; i < adatok.length; i++) {
+            if (adatok[i][subarray.length - 1] == true) {
+              lista[2] = adatok[i][0];
+            }
+          }
+        }
+        localStorage.setItem("vadseged2", lista);
+      }
+      vslog();
+    </script>
+    <script>
+      const listaArray = localStorage.getItem("vadseged2").split(",");
+
+      const felirath = document.getElementById("felirat");
+      const szemelyp = document.getElementById("szemely");
+      const eszkozp = document.getElementById("eszkoz");
+      const helyszinp = document.getElementById("helyszin");
+      const segitseg = document.getElementById("segitseg");
+      const infogomb = document.getElementById("infogomb2");
+
+      if (listaArray[0] == "" && listaArray[1] == "" && listaArray[2] == "") {
+        felirath.style.display = "none";
+        infogomb.style.display = "none";
+      }
+
+      if (
+        listaArray[0] !== "" &&
+        listaArray[1] !== "" &&
+        listaArray[2] !== ""
+      ) {
+        felirath.textContent = "All the clues have been found!";
+        segitseg.textContent =
+          "You are ready to make an accusation. Keep a poker face until it's your turn!";
+      }
+
+      if (listaArray[0] === "") {
+        szemelyp.style.display = "none";
+      } else {
+        szemelyp.textContent = "Suspect: " + listaArray[0];
+      }
+
+      if (listaArray[1] === "") {
+        eszkozp.style.display = "none";
+      } else {
+        eszkozp.textContent = "Weapon: " + listaArray[1];
+      }
+
+      if (listaArray[2] === "") {
+        helyszinp.style.display = "none";
+      } else {
+        helyszinp.textContent = "Locaion: " + listaArray[2];
+      }
+    </script>
+    <script>
+      function szinezo() {
+        const listaArray = localStorage.getItem("vadseged2").split(",");
+        if (
+          listaArray[0] !== "" ||
+          listaArray[1] !== "" ||
+          listaArray[2] !== ""
+        ) {
+          // Get the element with the class "szinezodo"
+          const szinezodoElement = document.querySelector(".szinezodo");
+
+          // Check if the element is found before modifying the style
+          if (szinezodoElement) {
+            // Set the inline style to green
+            szinezodoElement.style.color = "rgb(255, 230, 102)";
+          }
+        }
+
+        if (
+          listaArray[0] !== "" &&
+          listaArray[1] !== "" &&
+          listaArray[2] !== ""
+        ) {
+          // Get the element with the class "szinezodo"
+          const szinezodoElement = document.querySelector(".szinezodo");
+
+          // Check if the element is found before modifying the style
+          if (szinezodoElement) {
+            // Set the inline style to green
+            szinezodoElement.style.color = "rgb(96, 225, 135)";
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        szinezo();
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        markRowsToCrossOut();
+      });
+
+      function markRowsToCrossOut() {
+        var table = document.getElementById("tablazat");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 1; i < rows.length; i++) {
+          // Start from 1 to skip the header row
+          var cells = rows[i].getElementsByTagName("td");
+          var firstCell = cells[0]; // Get the first cell in the row
+          var lastCell = cells[cells.length - 1]; // Get the last cell in the row
+
+          if (lastCell.textContent.trim().toLowerCase() === "false") {
+            firstCell.classList.add("crossed-out");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

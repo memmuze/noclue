@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="googlebot-news" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="bingbot" content="noindex" />
+    <meta name="duckduckbot" content="noindex" />
+    <meta name="baiduspider" content="noindex" />
+    <meta name="yandexbot" content="noindex" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6864262569282942"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fuggles&family=Nunito+Sans:opsz,wght@6..12,400;6..12,800;6..12,1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+    <title>NoClue | Own Cards</title>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      .aktiv {
+        color: rgb(216, 34, 26);
+        font-variation-settings: "wght" 800, "FILL" 1;
+      }
+      .tiltott {
+        color: rgb(170, 168, 168);
+        cursor: not-allowed;
+      }
+      #ribanc {
+        width: 100%;
+      }
+      .kutya {
+        display: block;
+        vertical-align: top;
+        padding-right: 40px;
+      }
+      @media all and (min-width: 600px) {
+        .hirdetes {
+          display: none;
+        }
+        label {
+          width: fit-content;
+        }
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLocalStorageForIcons();
+      });
+
+      function checkLocalStorageForIcons() {
+        var jatekosok2 = localStorage.getItem("jatekosok");
+
+        // Check if jatekosok2 array is empty or not
+        if (!jatekosok2 || jatekosok2.trim() === "") {
+          // Array is empty, add "tiltott" class to icons
+          addTiltottClassToIcons();
+        }
+        var alapadat = localStorage.getItem("AlapYOU");
+        if (alapadat || alapadat !== null) {
+          var ownClueIteam = document.getElementById("ownClueIteam");
+          ownClueIteam.classList.add("tiltott");
+        }
+        if (alapadat == null) {
+          addTiltottClassToIcons();
+        }
+        var medence = localStorage.getItem("AlapPOOL");
+        var medenceszam = localStorage.getItem("Poolcardcount");
+        if (medenceszam !== "0" && medence == null) {
+          ovtilt();
+        }
+      }
+
+      function addTiltottClassToIcons() {
+        // Get icon elements and add the "tiltott" class
+        var newClueItem = document.getElementById("newClueItem");
+        var overviewItem = document.getElementById("overviewItem");
+
+        newClueItem.classList.add("tiltott");
+        overviewItem.classList.add("tiltott");
+      }
+
+      function ovtilt() {
+        var overviewItem = document.getElementById("overviewItem");
+        overviewItem.classList.add("tiltott");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <a href="index.html"><img src="nclogo.png" /></a>
+      </div>
+      <div class="content">
+        <h2>Your cards</h2>
+        <br />
+        <input type="text" id="searchInput" placeholder="Search..." />
+
+        <form id="checkboxForm">
+          <table id="ribanc">
+            <tr>
+              <td class="kutya">
+                <h3>Suspects</h3>
+                <label>
+                  <input type="checkbox" id="Plum" name="Plum" value="Plum" />
+                  Plum
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="White"
+                    name="White"
+                    value="White"
+                  />
+                  White
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Scarlet"
+                    name="Scarlet"
+                    value="Scarlet"
+                  />
+                  Scarlet
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Green"
+                    name="Green"
+                    value="Green"
+                  />
+                  Green
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Mustard"
+                    name="Mustard"
+                    value="Mustard"
+                  />
+                  Mustard
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Peacock"
+                    name="Peacock"
+                    value="Peacock"
+                  />
+                  Peacock
+                </label>
+              </td>
+              <td class="kutya">
+                <h3>Weapons</h3>
+                <label>
+                  <input type="checkbox" id="Rope" name="Rope" value="Rope" />
+                  Rope
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Dagger"
+                    name="Dagger"
+                    value="Dagger"
+                  />
+                  Dagger
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Wrench"
+                    name="Wrench"
+                    value="Wrench"
+                  />
+                  Wrench
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Pistol"
+                    name="Pistol"
+                    value="Pistol"
+                  />
+                  Pistol
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Candlestick"
+                    name="Candlestick"
+                    value="Candlestick"
+                  />
+                  Candlestick
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="LeadPipe"
+                    name="Lead Pipe"
+                    value="Lead Pipe"
+                  />
+                  Lead Pipe
+                </label>
+              </td>
+              <td class="kutya">
+                <h3>Rooms</h3>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Courtyard"
+                    name="Courtyard"
+                    value="Courtyard"
+                  />
+                  Courtyard
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="GameRoom"
+                    name="Game Room"
+                    value="Game Room"
+                  />
+                  Game Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Study"
+                    name="Study"
+                    value="Study"
+                  />
+                  Study
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="DiningRoom"
+                    name="DiningRoom"
+                    value="Dining Room"
+                  />
+                  Dining Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Garage"
+                    name="Garage"
+                    value="Garage"
+                  />
+                  Garage
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="LivingRoom"
+                    name="LivingRoom"
+                    value="Living Room"
+                  />
+                  Living Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Kitchen"
+                    name="Kitchen"
+                    value="Kitchen"
+                  />
+                  Kitchen
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Bedroom"
+                    name="Bedroom"
+                    value="Bedroom"
+                  />
+                  Bedroom
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Bathroom"
+                    name="Bathroom"
+                    value="Bathroom"
+                  />
+                  Bathroom
+                </label>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <span
+          onclick="megmutat()"
+          class="material-symbols-outlined info"
+          id="infogomb"
+        >
+          help
+        </span>
+        <ol class="s3">
+          <li>
+            <p>Select the cards that are in your hands.</p>
+          </li>
+          <li>
+            <p>
+              You do not have to assign leftover cards to yourself, you can do
+              it later.
+            </p>
+          </li>
+          <li>
+            <p>
+              Scroll past the advertisement. You can double-check your selection
+              and hit submit.
+            </p>
+          </li>
+
+          <p style="color: rgb(255, 230, 102); font-weight: bold">
+            Beware that the amount of selected cards must match the previously
+            set amount.
+          </p>
+        </ol>
+        <div class="hirdetes">
+          <div class="hirkep"></div>
+        </div>
+        <div id="selectedItems">
+          <h2>Owned by You</h2>
+          <ul id="selectedList"></ul>
+        </div>
+
+        <button onclick="submitForm()" class="mainaction" id="submitButton">
+          SUBMIT
+        </button>
+      </div>
+      <div class="hird2">
+        <div class="hirdetes2">
+          <div class="hirkep"></div>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="box">
+          <div class="item active">
+            <a href="index.html">
+              <span class="material-symbols-outlined"> home </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="#">
+              <span class="material-symbols-outlined aktiv"> person_add </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="item">
+            <a href="newclue.html">
+              <span class="material-symbols-outlined" id="newClueItem">
+                library_add
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="overview.html">
+              <span class="material-symbols-outlined" id="overviewItem">
+                analytics
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="item">
+            <a href="info.html">
+              <span class="material-symbols-outlined"> info </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      if (localStorage.getItem("AlapYOU")) {
+        // Redirect to newclue.html
+        window.location.href = "newclue.html";
+      }
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function () {
+          const searchValue = this.value.toLowerCase();
+          const labels = document.querySelectorAll("#checkboxForm label");
+          const submitButton = document.getElementById("submitButton");
+
+          labels.forEach(function (label) {
+            const labelText = label.textContent.toLowerCase();
+            if (labelText.includes(searchValue)) {
+              label.style.display = "block";
+            } else {
+              label.style.display = "none";
+            }
+          });
+        });
+
+      const checkboxForm = document.getElementById("checkboxForm");
+      const selectedList = document.getElementById("selectedList");
+
+      checkboxForm.addEventListener("change", function () {
+        const maxCount = parseInt(localStorage.getItem("Youcardcount"));
+        selectedList.innerHTML = ""; // Clear the previous selections
+        console.log("maxCount:", maxCount);
+        const checkboxes = document.querySelectorAll(
+          '#checkboxForm input[type="checkbox"]:checked'
+        );
+
+        const sortedItems = Array.from(checkboxes)
+          .map((checkbox) => checkbox.parentElement.textContent.trim())
+          .sort();
+
+        sortedItems.forEach(function (item) {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          selectedList.appendChild(listItem);
+        });
+        submitButton.style.display =
+          checkboxes.length === maxCount ? "block" : "none";
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        submitButton.style.display = "none";
+      });
+    </script>
+
+    <script>
+      function submitForm() {
+        // Get all checkboxes
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        );
+
+        // Extract values from selected checkboxes and join them into a string separated by spaces
+        const selectedItemsString = Array.from(checkboxes)
+          .map((checkbox) => checkbox.value)
+          .join(",");
+
+        // Display selected items in the "Owned by You" section as a string
+        const selectedList = document.getElementById("selectedList");
+        selectedList.textContent = selectedItemsString;
+
+        // Store selected items in localStorage as a string
+        localStorage.setItem("AlapYOU", selectedItemsString);
+        window.location.href = "newclue.html";
+      }
+    </script>
+    <script>
+      function megmutat() {
+        var szovegList = document.getElementsByClassName("s3");
+
+        for (var i = 0; i < szovegList.length; i++) {
+          var szoveg = szovegList[i];
+
+          if (szoveg.style.display === "block" || szoveg.style.display === "") {
+            szoveg.style.display = "none";
+          } else {
+            szoveg.style.display = "block";
+          }
+        }
+      }
+    </script>
+    <script>
+      var infoButton = document.querySelector(".info");
+
+      infoButton.addEventListener("mouseover", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 1";
+        infoButton.style.color = "white";
+      });
+
+      infoButton.addEventListener("mouseout", function () {
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      });
+    </script>
+
+    <script>
+      window.onload = function () {
+        var infoButton = document.querySelector(".info");
+
+        infoButton.style.fontVariationSettings = "'FILL' 0";
+        infoButton.style.color = "white";
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+        megmutat();
+      });
+    </script>
+  </body>
+</html>

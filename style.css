@@ -1,0 +1,881 @@
+* {
+  box-sizing: border-box;
+}
+ol {
+  padding-left: 25px;
+}
+.csakpc {
+  display: none;
+}
+
+ol li {
+  padding-bottom: 2px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nehaugrik {
+  display: none; /* Initially hide the content */
+  /* Add more styles as needed */
+}
+.nehaugrik h4 {
+  margin-top: 0px;
+}
+.nehaugrik2 {
+  display: none; /* Initially hide the content */
+  /* Add more styles as needed */
+}
+.nehaugrik2 h4 {
+  margin-top: 0px;
+}
+.bekero input[type="text"] {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: 2px solid rgb(45, 45, 45);
+  height: 2.5em;
+  width: 100%;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding-left: 5px;
+  height: 3em;
+  font-size: 13px;
+}
+.bekero input[type="text"]:hover {
+  border: 2px solid rgb(216, 34, 26);
+}
+
+.content {
+  margin-top: 60px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 60px;
+  flex: 1;
+  overflow-y: auto;
+}
+#content {
+  margin-top: 60px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 60px;
+  flex: 1;
+  overflow-y: auto;
+}
+p {
+  text-align: justify;
+}
+
+h1 {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 800;
+}
+h2 {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: 800;
+}
+.ncfelirat {
+  font-weight: 1000;
+  color: rgb(216, 34, 26);
+}
+
+body {
+  user-select: none;
+  font-family: "Nunito Sans", "Helvetica";
+  background-color: rgb(25, 25, 25);
+  color: white;
+}
+
+.mainaction {
+  display: block;
+  background-color: rgb(216, 34, 26);
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  border: 3px solid rgb(216, 34, 26);
+  font-weight: bold;
+  width: 100%;
+}
+
+.mainaction:hover {
+  background-color: rgb(25, 25, 25);
+  animation-name: mainactionin;
+  animation-duration: 0.8s;
+  border: 3px solid rgb(216, 34, 26);
+}
+
+.mainaction:not(:hover) {
+  animation-name: mainactionout;
+  animation-duration: 0.8s;
+}
+
+@keyframes mainactionin {
+  from {
+    background-color: rgb(216, 34, 26);
+  }
+  to {
+    background-color: rgb(25, 25, 25);
+    border: 3px solid rgb(216, 34, 26);
+  }
+}
+
+@keyframes mainactionout {
+  from {
+    background-color: rgb(25, 25, 25);
+    border: 3px solid rgb(216, 34, 26);
+  }
+  to {
+    background-color: rgb(216, 34, 26);
+  }
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  --size: 60px;
+  width: var(--size);
+  height: var(--size);
+  transition: transform 0.5s;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mukodj label {
+  display: inline-block;
+}
+.box:hover {
+  transform: scale(1.6) translateY(-15px);
+}
+
+.box:has(+ .box:hover),
+.box:hover + .box {
+  transform: scale(1.3) translateY(-8px);
+}
+
+.kep {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.topbar {
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  margin-bottom: 15px;
+  z-index: 9999;
+}
+
+.topbar img {
+  height: 50px;
+}
+
+.secondaryaction {
+  display: block;
+  background-color: white;
+  color: rgb(25, 25, 25);
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  border: 3px solid white;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.secondaryaction:hover {
+  color: white;
+  background-color: rgb(25, 25, 25);
+  animation-name: secondaryactionin;
+  animation-duration: 0.8s;
+  border: 3px solid white;
+}
+
+.secondaryaction:not(:hover) {
+  animation-name: secondaryactionout;
+  animation-duration: 0.8s;
+}
+
+@keyframes secondaryactionin {
+  from {
+    background-color: white;
+    color: rgb(25, 25, 25);
+  }
+  to {
+    background-color: rgb(25, 25, 25);
+    border: 3px solid white;
+    color: white;
+  }
+}
+
+@keyframes secondaryactionout {
+  from {
+    background-color: rgb(25, 25, 25);
+  }
+  to {
+    background-color: white;
+    border: 3px solid white;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera, and Edge Chromium styles *****/
+/* Slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  margin-top: -0.4rem; /* Centers thumb on the track */
+
+  /* Custom styles */
+  background-color: #d8221a;
+  height: 1.2rem; /* 1.5 times bigger than the line */
+  width: 1.2rem; /* 1.5 times bigger than the line */
+  border-radius: 50%; /* Set border-radius to create a circle */
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid white;
+  outline: 3px solid white;
+  outline-offset: 0.125rem;
+}
+
+/******** Firefox styles ********/
+/* Slider track */
+input[type="range"]::-moz-range-track {
+  background-color: white;
+  border-radius: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Slider thumb */
+input[type="range"]::-moz-range-thumb {
+  border: none; /* Removes extra border that FF applies */
+  border-radius: 50%; /* Set border-radius to create a circle */
+
+  /* Custom styles */
+  background-color: #d8221a;
+  height: 1.2rem; /* 1.5 times bigger than the line */
+  width: 1.2rem; /* 1.5 times bigger than the line */
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid white;
+  outline: 3px solid white;
+  outline-offset: 0.125rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: rgb(216, 34, 26);
+  cursor: pointer;
+}
+
+th,
+td {
+  text-align: left;
+  padding-left: 20px;
+}
+
+th:nth-child(1) {
+  padding-left: 0px;
+}
+td:nth-child(1) {
+  padding-left: 0px;
+}
+
+#tablazat {
+  padding-top: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  table-layout: fixed;
+  border: none;
+  margin-top: 20px;
+}
+
+#tablazat td:nth-child(1) {
+  width: 10%;
+}
+
+#tablazat table,
+th,
+td {
+  border: none;
+  padding-left: 0px;
+}
+
+#tablazat tr {
+  height: 2em;
+}
+
+#tablazat tr:hover {
+  color: rgb(216, 34, 26);
+  /* Set the desired background color on hover */
+}
+
+#tablazat tr:focus {
+  background-color: rgb(216, 34, 26);
+  outline: none;
+  /* Set the desired background color on hover */
+}
+
+#tablazat td:first-child,
+#tablazat th:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+#tablazat td:last-child,
+#tablazat th:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+#tablazat td:not(:first-child):not(:last-child) {
+  text-align: center;
+  padding-left: 44px;
+}
+
+#tablazat th:not(:first-child):not(:last-child) {
+  text-align: left;
+  padding-left: 17px;
+  transform: rotate(270deg);
+  transform-origin: top;
+  padding-right: none;
+}
+
+#tablazat td:last-child,
+#tablazat th:last-child {
+  display: none;
+}
+
+thead {
+  z-index: 0;
+}
+#segitseg {
+  display: none;
+  margin-top: 0px;
+}
+
+.s2 {
+  display: none;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.info {
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: 0.6s; /* Smooth color transition */
+  margin-top: 20px;
+}
+.info2 {
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: 0.6s; /* Smooth color transition */
+  margin-top: 20px;
+}
+
+select {
+  -webkit-appearance: none; /* Disable default Safari styling */
+  -moz-appearance: none; /* Disable default Firefox styling */
+  appearance: none;
+
+  border-radius: 5px;
+  border: 2px solid rgb(45, 45, 45);
+  height: 2.5em;
+  width: 100%;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='white'><polygon points='50,80,0 0,100 0'/></svg>")
+    no-repeat;
+  background-size: 10px;
+  background-position: calc(100% - 10px) 10px;
+  background-repeat: no-repeat;
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding-left: 5px;
+  height: 3em;
+  font-size: 13px;
+}
+
+h4 {
+  margin-bottom: 5px;
+}
+
+select:hover {
+  border: 2px solid rgb(216, 34, 26);
+}
+
+button {
+  margin-top: 20px;
+}
+
+td,
+th {
+  padding-right: 10px;
+}
+
+.szamok {
+  width: 4em;
+}
+
+#searchInput {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  border-radius: 5px;
+  border: 2px solid rgb(45, 45, 45);
+  height: 3em;
+  margin-top: 5px;
+  width: 100%;
+}
+
+#searchInput:hover {
+  border: 2px solid rgb(216, 34, 26);
+}
+
+#selectedList {
+  list-style: none;
+  padding-left: 0px;
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  /* Edge 12 -18 */
+  color: white;
+}
+
+.jatekosnev {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  border-radius: 5px;
+  border: 2px solid rgb(45, 45, 45);
+  height: 2em;
+}
+
+.jatekosnev:hover {
+  border: 2px solid rgb(216, 34, 26);
+}
+
+td {
+  padding-bottom: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+h3,
+h2,
+h4 {
+  margin-bottom: 5px;
+}
+
+#selectedList {
+  margin-top: 0px;
+}
+
+#szemely,
+#eszkoz,
+#helyszin {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+#segitseg {
+  margin: 0;
+}
+
+.hirdetes {
+  position: relative;
+  width: 100%; /* Adjust the width as needed */
+  padding-bottom: 100%;
+  background-color: rgb(45, 45, 45);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.hirkep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+}
+.crossed-out {
+  text-decoration: line-through;
+  font-size: 0.8em;
+  font-style: italic;
+}
+.donate {
+  display: block;
+  background-color: rgb(84, 84, 84);
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  border: 3px solid rgb(84, 84, 84);
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.donate:hover {
+  animation: donatein;
+  animation-duration: 0.8s;
+  color: white;
+  background-color: rgb(25, 25, 25);
+  border: 3px solid rgb(84, 84, 84);
+}
+.donate:not(:hover) {
+  animation: donateout;
+  animation-duration: 0.8s;
+}
+.hird2 {
+  display: none;
+}
+@keyframes donatein {
+  from {
+    background-color: rgb(84, 84, 84);
+    color: white;
+    border: 3px solid rgb(84, 84, 84);
+  }
+  to {
+    background-color: rgb(25, 25, 25);
+    border: 3px solid rgb(84, 84, 84);
+    color: white;
+  }
+}
+
+@keyframes donateout {
+  from {
+    background-color: rgb(25, 25, 25);
+    border: 3px solid rgb(84, 84, 84);
+    color: white;
+  }
+  to {
+    background-color: rgb(84, 84, 84);
+  }
+}
+button,
+select {
+  cursor: pointer;
+}
+
+input[type="button"],
+input[type="text"] {
+  cursor: pointer;
+  width: 100%;
+}
+
+#infogomb2 {
+  margin-top: 5px;
+}
+
+.jatekosnev {
+  height: 2.5em;
+}
+input[type="text"] {
+  height: 39px;
+}
+p {
+  margin-top: 0px;
+}
+
+#szamlalo {
+  font-size: 78px;
+  font-family: "Rubik";
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.kozepso {
+  margin-top: 40px;
+  border-radius: 10px;
+  border: 3px solid rgb(45, 45, 45);
+  padding-top: 10px;
+  background-color: rgb(45, 45, 45);
+  padding-left: 19px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+.kozepso h2 {
+  margin-top: 5px;
+}
+.kozepso:hover {
+  animation: bin;
+  animation-duration: 0.8s;
+  border: 3px solid rgb(216, 34, 26);
+}
+.kozepso:not(:hover) {
+  animation: bout;
+  animation-duration: 0.8s;
+  border: 3px solid rgb(45, 45, 45);
+}
+@keyframes dicsin {
+  from {
+    color: white;
+  }
+  to {
+    color: rgb(216, 34, 26);
+  }
+}
+
+@keyframes dicsout {
+  from {
+    color: rgb(216, 34, 26);
+  }
+  to {
+    color: white;
+  }
+}
+@keyframes bin {
+  from {
+    border: 3px solid rgb(45, 45, 45);
+  }
+  to {
+    border: 3px solid rgb(216, 34, 26);
+  }
+}
+@keyframes bout {
+  from {
+    border: 3px solid rgb(216, 34, 26);
+  }
+  to {
+    border: 3px solid rgb(45, 45, 45);
+  }
+}
+
+#recordtype {
+  margin-bottom: 15px;
+}
+
+.s3 h4 {
+  margin-top: 2px;
+}
+
+.egyszint {
+  display: flex;
+  align-items: flex-end;
+}
+
+.egyszint h4 {
+  margin: 0px;
+  margin-left: 8px;
+}
+
+#cook {
+  background-color: black;
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  text-decoration: none;
+  padding: 10px 20px 10px 20px;
+}
+
+#cook p {
+  margin: 0px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+.cookgomb {
+  margin: 0px;
+  width: 49%;
+  height: 2em;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.cookgomb:hover {
+  background-color: rgb(25, 25, 25);
+}
+
+a {
+  color: white;
+}
+@media all and (min-width: 600px) {
+  .csakpc {
+    display: block;
+  }
+  #szamlalo {
+    text-align: left;
+  }
+  input[type="checkbox"] {
+    display: inline-block;
+  }
+  button {
+    display: inline-block;
+  }
+  #gombkutya {
+    width: 32.5%;
+    margin: 0px;
+  }
+  #gombkutya2 {
+    width: 49.3%;
+    margin: 0px;
+  }
+  #gk {
+    width: 49.3%;
+    margin: 0px;
+  }
+  #gomb {
+    width: 49.3%;
+    margin: 0px;
+  }
+  .mainaction {
+    width: 20%;
+  }
+  .secondaryaction {
+    width: 20%;
+  }
+  .donate {
+    width: 20%;
+  }
+  .hirdetes {
+    padding-bottom: 33%;
+  }
+
+  .table {
+    width: 48%;
+  }
+
+  select {
+    width: 20%;
+  }
+  #searchInput {
+    width: 23%;
+  }
+  #tablazat th:not(:first-child):not(:last-child) {
+    text-align: center;
+    padding-left: 45px;
+    transform: rotate(0deg);
+    transform-origin: middle;
+    padding-right: none;
+  }
+  input[type="button"] {
+    display: inline-block;
+    width: 20%;
+  }
+  .content {
+    margin-bottom: 200px;
+  }
+  .hird2 {
+    background: rgb(25, 25, 25);
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    height: 140px;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  .hirdetes2 {
+    background-color: rgb(45, 45, 45);
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+  .button-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 10px;
+  }
+  .cookgomb {
+    display: inline-block;
+    width: 175px;
+  }
+  #cook {
+    height: 70px;
+  }
+  #doboz {
+    display: block;
+    width: 358px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dobozbal {
+    width: 33%;
+    display: inline-block;
+  }
+  .kep {
+    width: 100%;
+  }
+  .dobozjobb {
+    width: 65%;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .doboz2 {
+    display: flex;
+  }
+}
