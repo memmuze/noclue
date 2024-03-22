@@ -1327,5 +1327,31 @@
           });
       });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the button elements
+    var undoButton2 = document.getElementById("table-container");
+    var szoveg2= document.getElementById("h2");
+
+  
+
+    var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+    if (clueList.length > 0) {
+      // Set button text to "NEXT" if clueList is not empty
+      undoButton2.style.display = "block";
+
+      var lastIndexOfClueList = clueList.length - 1;
+      // Set szamlalo to the last index of clueList
+      localStorage.setItem("meddig", lastIndexOfClueList.toString());
+    } else {
+      // Hide buttons if clueList is empty
+      undoButton2.style.display = "none";
+    }
+
+    // Function to undo the last submission
+  
+  });
+</script>
   </body>
 </html>
