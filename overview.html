@@ -20,25 +20,17 @@
       href="https://fonts.googleapis.com/css2?family=Fuggles&family=Nunito+Sans:opsz,wght@6..12,400;6..12,800;6..12,1000&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <title>NoClue | Overview</title>
+    <title>NoClue | Own Cards</title>
 
     <style>
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
 
-      .mso {
-        font-size: 40px;
-        font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0;
-      }
       .aktiv {
         color: rgb(216, 34, 26);
         font-variation-settings: "wght" 800, "FILL" 1;
@@ -47,166 +39,313 @@
         color: rgb(170, 168, 168);
         cursor: not-allowed;
       }
+      #ribanc {
+        width: 100%;
+      }
+      .kutya {
+        display: block;
+        vertical-align: top;
+        padding-right: 40px;
+      }
       @media all and (min-width: 600px) {
         .hirdetes {
           display: none;
         }
+        label {
+          width: fit-content;
+        }
       }
     </style>
-    <meta name="application-name" content="NoClue!" />
-    <meta name="author" content="Memmuze Team" />
-    <meta
-      name="description"
-      content="Unlock the secrets to victory in the classic board game, Clue(do). NoClue! offers you an user-friendly way to find all the necessary clues for a spot-on accusation. Explore educational insights, and a sleek design to enhance your gameplay. Discover the winning moves – start your journey to Clue(do) mastery today!"
-    />
-    <meta
-      name="keywords"
-      content="Clue strategy, Clue winning strategy, Clue
-    win, Clue solver, Clue program, Clue algorythm, Clue solve, Clue, board
-    game, board game tips,  Clue solution, Clue how to win, Clue calculator,
-    Clue sheet, Clue guide, Clue card, Clue wikihow Cluedo strategy, Cluedo
-    winning strategy, Cluedo win, Cluedo solver, Cluedo program, Cluedo
-    algorythm, Cluedo solve, Cluedo, board game, board game tips, Cluedo
-    solution, Cluedo how to win, Cluedo calculator, Cluedo sheet, Cluedo guide,
-    Cluedo card, Cluedo wikihow"
-    />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var alapadat = localStorage.getItem("AlapYOU");
-        if (alapadat == null) {
-          window.location.href = "owncards.html";
-        }
-        var medence = localStorage.getItem("AlapPOOL");
-        var medenceszam = localStorage.getItem("Poolcardcount");
-        if (medenceszam !== "0" && medence == null) {
-          window.location.href = "owncards.html";
-        }
-      });
-    </script>
-    <script>
-      function shrinkSubarraysWithNoone() {
-        // Retrieve the 'clueList' array from localStorage
-        var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
-
-        // Iterate through each subarray in clueList
-        for (var i = 0; i < clueList.length; i++) {
-          var subarray = clueList[i];
-
-          // Check if the subarray's length exceeds 5 and "noone" is at the 4th index
-          if (subarray.length > 5 && subarray[4] === "noone") {
-            // Shrink the subarray so that "noone" is the last value
-            subarray.splice(5, subarray.length - 4);
-            subarray[4] = subarray[0];
-          }
-          if (subarray[4] === "noone") {
-            subarray[4] = subarray[0];
-          }
-
-          // Save the updated 'clueList' to localStorage
-          localStorage.setItem("clueList", JSON.stringify(clueList));
-        }
-      }
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        checkLocalStorageForIcons();
-        shrinkSubarraysWithNoone();
-      });
-
-      function checkLocalStorageForIcons() {
-        var alapadat = localStorage.getItem("AlapYOU");
-        if (alapadat || alapadat !== null) {
-          var ownClueIteam = document.getElementById("ownClueIteam");
-          ownClueIteam.classList.add("tiltott");
-        }
-      }
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Check if "jatekosok" is not empty in local storage
-        var jatekosokValue = localStorage.getItem("jatekosok");
-
-        if (!jatekosokValue || jatekosokValue.trim() === "") {
-          // If empty or not found, redirect to "players.html"
-          window.location.href = "players.html";
-        }
-      });
-    </script>
 
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        checkLocalStorageForIcons();
+      });
+
+      function checkLocalStorageForIcons() {
+        var jatekosok2 = localStorage.getItem("jatekosok");
+
+        // Check if jatekosok2 array is empty or not
+        if (!jatekosok2 || jatekosok2.trim() === "") {
+          // Array is empty, add "tiltott" class to icons
+          addTiltottClassToIcons();
+        }
+        var alapadat = localStorage.getItem("AlapYOU");
+        if (alapadat || alapadat !== null) {
+          var ownClueIteam = document.getElementById("ownClueIteam");
+          ownClueIteam.classList.add("tiltott");
+        }
+        if (alapadat == null) {
+          addTiltottClassToIcons();
+        }
+        var medence = localStorage.getItem("AlapPOOL");
+        var medenceszam = localStorage.getItem("Poolcardcount");
+        if (medenceszam !== "0" && medence == null) {
+          ovtilt();
+        }
+      }
+
+      function addTiltottClassToIcons() {
+        // Get icon elements and add the "tiltott" class
+        var newClueItem = document.getElementById("newClueItem");
+        var overviewItem = document.getElementById("overviewItem");
+
+        newClueItem.classList.add("tiltott");
+        overviewItem.classList.add("tiltott");
+      }
+
+      function ovtilt() {
+        var overviewItem = document.getElementById("overviewItem");
+        overviewItem.classList.add("tiltott");
+      }
+    </script>
   </head>
   <body>
     <div class="container">
       <div class="topbar">
         <a href="index.html"><img src="nclogo.png" /></a>
       </div>
-
       <div class="content">
-        <div id="vadseged">
-          <h3 id="felirat">Clue found!</h3>
-          <p id="szemely"></p>
-          <p id="eszkoz"></p>
-          <p id="helyszin"></p>
-          <span
-            onclick="megmutat()"
-            class="material-symbols-outlined info"
-            id="infogomb2"
-          >
-            info
-          </span>
-          <p id="segitseg">
-            This card is in the envelope. Make sure to avoid raising suspicion
-            to this information. Try suggesting with other pieces involved.
-          </p>
+        <h2>Your cards</h2>
+        <br />
+        <input type="text" id="searchInput" placeholder="Search..." />
 
-          <span onclick="megmutat2()" class="material-symbols-outlined info2">
-            help
-          </span>
-          <ol class="s3">
-            <li>
-              <p>
-                You can overview the game's progress in a table view based on
-                your inputs.
-              </p>
-            </li>
-            <li>
-              <p>
-                If you wish to remove the last suggestion, click the Undo button
-                at the bottom of the page.
-              </p>
-            </li>
-            <li>
-              <p>
-                If a clue in the envelope has been found, the page's icon will
-                change color.
-              </p>
-            </li>
-          </ol>
-          <div class="s3">
-            <h4>Legend</h4>
-            <ol>
-              <li>
-                <p>"x" means that a player does not own that card.</p>
-              </li>
-              <li>
-                <p>"o" means that a player owns that card.</p>
-              </li>
-              <li>
-                <p>
-                  Numbers, like "1 2 etc." means that a player might own that
-                  card.
-                </p>
-              </li>
-            </ol>
-          </div>
+        <form id="checkboxForm">
+          <table id="ribanc">
+            <tr>
+              <td class="kutya">
+                <h3>Suspects</h3>
+                <label>
+                  <input type="checkbox" id="Plum" name="Plum" value="Plum" />
+                  Plum
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="White"
+                    name="White"
+                    value="White"
+                  />
+                  White
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Scarlet"
+                    name="Scarlet"
+                    value="Scarlet"
+                  />
+                  Scarlet
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Green"
+                    name="Green"
+                    value="Green"
+                  />
+                  Green
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Mustard"
+                    name="Mustard"
+                    value="Mustard"
+                  />
+                  Mustard
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Peacock"
+                    name="Peacock"
+                    value="Peacock"
+                  />
+                  Peacock
+                </label>
+              </td>
+              <td class="kutya">
+                <h3>Weapons</h3>
+                <label>
+                  <input type="checkbox" id="Rope" name="Rope" value="Rope" />
+                  Rope
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Dagger"
+                    name="Dagger"
+                    value="Dagger"
+                  />
+                  Dagger
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Wrench"
+                    name="Wrench"
+                    value="Wrench"
+                  />
+                  Wrench
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Pistol"
+                    name="Pistol"
+                    value="Pistol"
+                  />
+                  Pistol
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Candlestick"
+                    name="Candlestick"
+                    value="Candlestick"
+                  />
+                  Candlestick
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="LeadPipe"
+                    name="Lead Pipe"
+                    value="Lead Pipe"
+                  />
+                  Lead Pipe
+                </label>
+              </td>
+              <td class="kutya">
+                <h3>Rooms</h3>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Courtyard"
+                    name="Courtyard"
+                    value="Courtyard"
+                  />
+                  Courtyard
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="GameRoom"
+                    name="Game Room"
+                    value="Game Room"
+                  />
+                  Game Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Study"
+                    name="Study"
+                    value="Study"
+                  />
+                  Study
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="DiningRoom"
+                    name="DiningRoom"
+                    value="Dining Room"
+                  />
+                  Dining Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Garage"
+                    name="Garage"
+                    value="Garage"
+                  />
+                  Garage
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="LivingRoom"
+                    name="LivingRoom"
+                    value="Living Room"
+                  />
+                  Living Room
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Kitchen"
+                    name="Kitchen"
+                    value="Kitchen"
+                  />
+                  Kitchen
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Bedroom"
+                    name="Bedroom"
+                    value="Bedroom"
+                  />
+                  Bedroom
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    id="Bathroom"
+                    name="Bathroom"
+                    value="Bathroom"
+                  />
+                  Bathroom
+                </label>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <span
+          onclick="megmutat()"
+          class="material-symbols-outlined info"
+          id="infogomb"
+        >
+          help
+        </span>
+        <ol class="s3">
+          <li>
+            <p>Select the cards that are in your hands.</p>
+          </li>
+          <li>
+            <p>
+              You do not have to assign leftover cards to yourself, you can do
+              it later.
+            </p>
+          </li>
+          <li>
+            <p>
+              Scroll past the advertisement. You can double-check your selection
+              and hit submit.
+            </p>
+          </li>
+
+          <p style="color: rgb(255, 230, 102); font-weight: bold">
+            Beware that the amount of selected cards must match the previously
+            set amount.
+          </p>
+        </ol>
+
+        <div id="selectedItems">
+          <h2>Owned by You</h2>
+          <ul id="selectedList"></ul>
         </div>
 
-        <div id="table-container"></div>
-
-        <button id="undoButton" class="mainaction">UNDO</button>
+        <button onclick="submitForm()" class="mainaction" id="submitButton">
+          SUBMIT
+        </button>
       </div>
 
       <div class="navbar">
@@ -219,10 +358,8 @@
         </div>
         <div class="box">
           <div class="item">
-            <a href="players.html">
-              <span class="material-symbols-outlined" id="ownClueIteam">
-                person_add
-              </span>
+            <a href="#">
+              <span class="material-symbols-outlined aktiv"> person_add </span>
             </a>
           </div>
         </div>
@@ -230,14 +367,16 @@
         <div class="box">
           <div class="item">
             <a href="newclue.html">
-              <span class="material-symbols-outlined"> library_add </span>
+              <span class="material-symbols-outlined" id="newClueItem">
+                library_add
+              </span>
             </a>
           </div>
         </div>
         <div class="box">
           <div class="item">
-            <a href="#">
-              <span class="material-symbols-outlined aktiv szinezodo">
+            <a href="overview.html">
+              <span class="material-symbols-outlined" id="overviewItem">
                 analytics
               </span>
             </a>
@@ -253,7 +392,78 @@
       </div>
     </div>
     <script>
-      function megmutat2() {
+      if (localStorage.getItem("AlapYOU")) {
+        // Redirect to newclue.html
+        window.location.href = "newclue.html";
+      }
+      document
+        .getElementById("searchInput")
+        .addEventListener("input", function () {
+          const searchValue = this.value.toLowerCase();
+          const labels = document.querySelectorAll("#checkboxForm label");
+          const submitButton = document.getElementById("submitButton");
+
+          labels.forEach(function (label) {
+            const labelText = label.textContent.toLowerCase();
+            if (labelText.includes(searchValue)) {
+              label.style.display = "block";
+            } else {
+              label.style.display = "none";
+            }
+          });
+        });
+
+      const checkboxForm = document.getElementById("checkboxForm");
+      const selectedList = document.getElementById("selectedList");
+
+      checkboxForm.addEventListener("change", function () {
+        const maxCount = parseInt(localStorage.getItem("Youcardcount"));
+        selectedList.innerHTML = ""; // Clear the previous selections
+        console.log("maxCount:", maxCount);
+        const checkboxes = document.querySelectorAll(
+          '#checkboxForm input[type="checkbox"]:checked'
+        );
+
+        const sortedItems = Array.from(checkboxes)
+          .map((checkbox) => checkbox.parentElement.textContent.trim())
+          .sort();
+
+        sortedItems.forEach(function (item) {
+          const listItem = document.createElement("li");
+          listItem.textContent = item;
+          selectedList.appendChild(listItem);
+        });
+        submitButton.style.display =
+          checkboxes.length === maxCount ? "block" : "none";
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        submitButton.style.display = "none";
+      });
+    </script>
+
+    <script>
+      function submitForm() {
+        // Get all checkboxes
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        );
+
+        // Extract values from selected checkboxes and join them into a string separated by spaces
+        const selectedItemsString = Array.from(checkboxes)
+          .map((checkbox) => checkbox.value)
+          .join(",");
+
+        // Display selected items in the "Owned by You" section as a string
+        const selectedList = document.getElementById("selectedList");
+        selectedList.textContent = selectedItemsString;
+
+        // Store selected items in localStorage as a string
+        localStorage.setItem("AlapYOU", selectedItemsString);
+        window.location.href = "newclue.html";
+      }
+    </script>
+    <script>
+      function megmutat() {
         var szovegList = document.getElementsByClassName("s3");
 
         for (var i = 0; i < szovegList.length; i++) {
@@ -267,44 +477,6 @@
         }
       }
     </script>
-
-    <script>
-      var infoButton2 = document.querySelector(".info2");
-
-      infoButton2.addEventListener("mouseover", function () {
-        infoButton2.style.fontVariationSettings = "'FILL' 1";
-        infoButton2.style.color = "white";
-      });
-
-      infoButton2.addEventListener("mouseout", function () {
-        infoButton2.style.fontVariationSettings = "'FILL' 0";
-        infoButton2.style.color = "white";
-      });
-    </script>
-
-    <script>
-      window.onload = function () {
-        var infoButton2 = document.querySelector(".info2");
-
-        infoButton2.style.fontVariationSettings = "'FILL' 0";
-        infoButton2.style.color = "white";
-      };
-      document.addEventListener("DOMContentLoaded", function () {
-        megmutat2();
-      });
-    </script>
-
-    <script>
-      function megmutat() {
-        var szoveg = document.getElementById("segitseg");
-        if (szoveg.style.display == "block") {
-          szoveg.style.display = "none";
-        } else {
-          szoveg.style.display = "block";
-        }
-      }
-    </script>
-
     <script>
       var infoButton = document.querySelector(".info");
 
@@ -318,6 +490,7 @@
         infoButton.style.color = "white";
       });
     </script>
+
     <script>
       window.onload = function () {
         var infoButton = document.querySelector(".info");
@@ -325,294 +498,8 @@
         infoButton.style.fontVariationSettings = "'FILL' 0";
         infoButton.style.color = "white";
       };
-    </script>
-    <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Get the button elements
-        var undoButton = document.getElementById("undoButton");
-
-        undoButton.addEventListener("click", function () {
-          if (confirm("Are you sure you want to undo the last submission?")) {
-            undoLastSubmission();
-          }
-        });
-
-        var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
-
-        if (clueList.length > 0) {
-          // Set button text to "NEXT" if clueList is not empty
-          undoButton.style.display = "block";
-
-          var lastIndexOfClueList = clueList.length - 1;
-          // Set szamlalo to the last index of clueList
-          localStorage.setItem("meddig", lastIndexOfClueList.toString());
-        } else {
-          // Hide buttons if clueList is empty
-          undoButton.style.display = "none";
-        }
-
-        // Function to undo the last submission
-        function undoLastSubmission() {
-          var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
-
-          if (clueList.length > 0) {
-            // Remove the last subarray from the 'clueList'
-            clueList.pop();
-
-            // Save the updated 'clueList' to localStorage
-            localStorage.setItem("clueList", JSON.stringify(clueList));
-            window.location.href = "overview.html";
-          }
-        }
-      });
-    </script>
-
-    <script src="python2.js"></script>
-    <script>
-      enadat();
-      medenceadat();
-      xsor();
-      xoszlop();
-
-      bemenetek = JSON.parse(localStorage.getItem("clueList"));
-      for (var k = 0; k < bemenetek.length; k++) {
-        sor = bemenetek[k];
-        xiro(sor);
-        szamiro(sor);
-        if (sor.length == 6) {
-          vanneki(sor);
-        }
-        szamirto();
-        xsor();
-        xoszlop();
-      }
-      advancedoszlop();
-      xsor();
-      tablazat();
-    </script>
-
-    <script>
-      function vsx() {
-        mennyinekkellenie =
-          JSON.parse(localStorage.getItem("jatekosok2")).length + 1;
-        let lista = ["", "", ""];
-        let szemelyek = adatok.slice(0, 6);
-        let eszkozok = adatok.slice(6, 12);
-        let helyek = adatok.slice(12);
-
-        for (let i = 0; i < szemelyek.length; i++) {
-          let subarray = szemelyek[i];
-          szamlalo = 0;
-          for (let j = 0; j < subarray.length; j++) {
-            if (subarray[j] == "x") {
-              szamlalo++;
-            }
-          }
-
-          if (szamlalo == mennyinekkellenie) {
-            lista[0] = subarray[0];
-          }
-        }
-
-        for (let i = 0; i < eszkozok.length; i++) {
-          let subarray = eszkozok[i];
-          szamlalo = 0;
-          for (let j = 0; j < subarray.length; j++) {
-            if (subarray[j] == "x") {
-              szamlalo++;
-            }
-          }
-
-          if (szamlalo == mennyinekkellenie) {
-            lista[1] = subarray[0];
-          }
-        }
-
-        for (let i = 0; i < helyek.length; i++) {
-          let subarray = helyek[i];
-          szamlalo = 0;
-          for (let j = 0; j < subarray.length; j++) {
-            if (subarray[j] == "x") {
-              szamlalo++;
-            }
-          }
-
-          if (szamlalo == mennyinekkellenie) {
-            lista[2] = subarray[0];
-          }
-        }
-
-        if (!("" in lista)) {
-          localStorage.setItem("vadseged", lista);
-        }
-        console.log(lista);
-      }
-      vsx();
-    </script>
-    <script>
-      function vslog() {
-        let lista = localStorage.getItem("vadseged").split(",") || [];
-        szemelylog = [];
-        eszkozlog = [];
-        helylog = [];
-        for (let i = 0; i < adatok.length; i++) {
-          let subarray = adatok[i];
-          if (i < 6 && adatok[i][subarray.length - 1] == true) {
-            szemelylog.push(adatok[i][subarray.length - 1]);
-          }
-
-          if (i >= 6 && i < 12 && adatok[i][subarray.length - 1] == true) {
-            eszkozlog.push(adatok[i][subarray.length - 1]);
-          }
-          if (i >= 12 && adatok[i][subarray.length - 1] == true) {
-            helylog.push(adatok[i][subarray.length - 1]);
-          }
-        }
-
-        if (szemelylog.length == 1 && lista[0] == "") {
-          for (let i = 0; i < 6; i++) {
-            let subarray = adatok[i];
-            if (adatok[i][subarray.length - 1] == true) {
-              lista[0] = adatok[i][0];
-            }
-          }
-        }
-
-        if (eszkozlog.length == 1 && lista[1] == "") {
-          for (let i = 6; i < 12; i++) {
-            let subarray = adatok[i];
-            if (adatok[i][subarray.length - 1] == true) {
-              lista[1] = adatok[i][0];
-            }
-          }
-        }
-
-        if (helylog.length == 1 && lista[2] == "") {
-          for (let i = 12; i < adatok.length; i++) {
-            let subarray = adatok[i];
-            if (adatok[i][subarray.length - 1] == true) {
-              lista[2] = adatok[i][0];
-            }
-          }
-        }
-        localStorage.setItem("vadseged2", lista);
-      }
-      vslog();
-    </script>
-    <script>
-      const listaArray = localStorage.getItem("vadseged2").split(",");
-
-      const felirath = document.getElementById("felirat");
-      const szemelyp = document.getElementById("szemely");
-      const eszkozp = document.getElementById("eszkoz");
-      const helyszinp = document.getElementById("helyszin");
-      const segitseg = document.getElementById("segitseg");
-      const infogomb = document.getElementById("infogomb2");
-
-      if (listaArray[0] == "" && listaArray[1] == "" && listaArray[2] == "") {
-        felirath.style.display = "none";
-        infogomb.style.display = "none";
-      }
-
-      if (
-        listaArray[0] !== "" &&
-        listaArray[1] !== "" &&
-        listaArray[2] !== ""
-      ) {
-        felirath.textContent = "All the clues have been found!";
-        segitseg.textContent =
-          "You are ready to make an accusation. Keep a poker face until it's your turn!";
-      }
-
-      if (listaArray[0] === "") {
-        szemelyp.style.display = "none";
-      } else {
-        szemelyp.textContent = "Suspect: " + listaArray[0];
-      }
-
-      if (listaArray[1] === "") {
-        eszkozp.style.display = "none";
-      } else {
-        eszkozp.textContent = "Weapon: " + listaArray[1];
-      }
-
-      if (listaArray[2] === "") {
-        helyszinp.style.display = "none";
-      } else {
-        helyszinp.textContent = "Locaion: " + listaArray[2];
-      }
-    </script>
-    <script>
-      function szinezo() {
-        const listaArray = localStorage.getItem("vadseged2").split(",");
-        if (
-          listaArray[0] !== "" ||
-          listaArray[1] !== "" ||
-          listaArray[2] !== ""
-        ) {
-          // Get the element with the class "szinezodo"
-          const szinezodoElement = document.querySelector(".szinezodo");
-
-          // Check if the element is found before modifying the style
-          if (szinezodoElement) {
-            // Set the inline style to green
-            szinezodoElement.style.color = "rgb(255, 230, 102)";
-          }
-        }
-
-        if (
-          listaArray[0] !== "" &&
-          listaArray[1] !== "" &&
-          listaArray[2] !== ""
-        ) {
-          // Get the element with the class "szinezodo"
-          const szinezodoElement = document.querySelector(".szinezodo");
-
-          // Check if the element is found before modifying the style
-          if (szinezodoElement) {
-            // Set the inline style to green
-            szinezodoElement.style.color = "rgb(96, 225, 135)";
-          }
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        szinezo();
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        markRowsToCrossOut();
-      });
-
-      function markRowsToCrossOut() {
-        var table = document.getElementById("tablazat");
-        var rows = table.getElementsByTagName("tr");
-
-        for (var i = 1; i < rows.length; i++) {
-          // Start from 1 to skip the header row
-          var cells = rows[i].getElementsByTagName("td");
-          var firstCell = cells[0]; // Get the first cell in the row
-          var lastCell = cells[cells.length - 1]; // Get the last cell in the row
-
-          if (lastCell.textContent.trim().toLowerCase() === "false") {
-            firstCell.classList.add("crossed-out");
-          }
-        }
-      }
-    </script>
-    <script>
-      // Add event listeners to the table rows
-      document.querySelectorAll("#tablazat tr").forEach((row) => {
-        row.addEventListener("click", () => {
-          // Remove the highlight from all rows
-          document.querySelectorAll("#tablazat tr").forEach((row) => {
-            row.classList.remove("highlight");
-          });
-
-          // Highlight the clicked row
-          row.classList.add("highlight");
-        });
+        megmutat();
       });
     </script>
   </body>
