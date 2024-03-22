@@ -485,22 +485,36 @@
               submit.
             </p>
           </li>
-
+          <li>
+            <p>
+              You can view the previous suggestions that have been made. Cards that have been shown to you are underlined.
+            </p>
+          </li>
+          <li>
+            <p>
+              If you wish to remove the last suggestion, click the Undo button
+              at the bottom of the page.
+            </p>
+          </li>
           <p style="color: rgb(255, 230, 102); font-weight: bold">
             Beware that the amount of selected leftover cards is calculated by
             the game engine.
           </p>
         </ol>
-        <div class="hirdetes">
-          <div class="hirkep"></div>
-        </div>
-      </div>
+       
+    <div id="table-container">
+      <h2>Previous Suggestions</h2>
+      <table id="tablazat3">
+        <tr>
+          <th>Who asked?</th>
+          <th>Suspect</th>
+          <th>Weapon</th>
+          <th>Location</th>
+          <th>Who showed?</th>
+        </tr>
+      </table>
     </div>
-    <div class="hird2">
-      <div class="hirdetes2">
-        <div class="hirkep"></div>
-      </div>
-    </div>
+    <button id="undoButton" class="mainaction">UNDO</button>
     <div class="navbar">
       <div class="box">
         <div class="item active">
@@ -1028,6 +1042,7 @@
     </script>
     <script src="python2.js"></script>
     <script>
+      generateTable();
       enadat();
       medenceadat();
       xsor();
@@ -1134,8 +1149,8 @@
         }
 
         if (eszkozlog.length == 1 && lista[1] == "") {
-          let subarray = adatok[i];
           for (let i = 6; i < 12; i++) {
+            let subarray = adatok[i];
             if (adatok[i][subarray.length - 1] == true) {
               lista[1] = adatok[i][0];
             }
@@ -1143,8 +1158,8 @@
         }
 
         if (helylog.length == 1 && lista[2] == "") {
-          let subarray = adatok[i];
           for (let i = 12; i < adatok.length; i++) {
+            let subarray = adatok[i];
             if (adatok[i][subarray.length - 1] == true) {
               lista[2] = adatok[i][0];
             }
@@ -1256,6 +1271,61 @@
       document.addEventListener("DOMContentLoaded", function () {
         megmutat();
       });
+    
     </script>
+     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the button elements
+        var undoButton = document.getElementById("undoButton");
+
+        undoButton.addEventListener("click", function () {
+          if (confirm("Are you sure you want to remove the last submission?")) {
+            undoLastSubmission();
+          }
+        });
+
+        var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+        if (clueList.length > 0) {
+          // Set button text to "NEXT" if clueList is not empty
+          undoButton.style.display = "block";
+
+          var lastIndexOfClueList = clueList.length - 1;
+          // Set szamlalo to the last index of clueList
+          localStorage.setItem("meddig", lastIndexOfClueList.toString());
+        } else {
+          // Hide buttons if clueList is empty
+          undoButton.style.display = "none";
+        }
+
+        // Function to undo the last submission
+        function undoLastSubmission() {
+          var clueList = JSON.parse(localStorage.getItem("clueList")) || [];
+
+          if (clueList.length > 0) {
+            // Remove the last subarray from the 'clueList'
+            clueList.pop();
+
+            // Save the updated 'clueList' to localStorage
+            localStorage.setItem("clueList", JSON.stringify(clueList));
+            window.location.href = "newclue.html";
+          }
+        }
+      });
+    </script>
+    <script>
+      // Add event listeners to the table rows
+      document.querySelectorAll('#tablazat3 tr').forEach(row => {
+          row.addEventListener('click', () => {
+              // Remove the highlight from all rows
+              document.querySelectorAll('#tablazat3 tr').forEach(row => {
+                  row.classList.remove('highlight');
+              });
+      
+              // Highlight the clicked row
+              row.classList.add('highlight');
+          });
+      });
+</script>
   </body>
 </html>
