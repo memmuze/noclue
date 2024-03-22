@@ -200,6 +200,7 @@ function tablazat() {
 }
 
 function elocheck(bemenet) {
+  var nyomok = bemenet.slice(1, 4);
   var mutato = fejlec.indexOf(bemenet[4]);
   var temp = [];
 
@@ -231,30 +232,31 @@ function szamiro(bemenet) {
       }
 
       indexek[mutato]++;
-      mutatott[mutato]++;
     }
   }
 }
 console.log(indexek);
 function vanneki(bemenet) {
-  var mutato = fejlec.indexOf(bemenet[4]);
-  var nyom = bemenet[5];
+  if (bemenet.length == 6) {
+    var mutato = fejlec.indexOf(bemenet[4]);
+    var nyom = bemenet[5];
 
-  for (var i = 0; i < adatok.length; i++) {
-    var adat = adatok[i];
+    for (var i = 0; i < adatok.length; i++) {
+      var adat = adatok[i];
 
-    if (adat[0] === nyom) {
-      if (adat[mutato] !== " ") {
-        var temp = adat[mutato].split(" ");
+      if (adat[0] === nyom) {
+        if (adat[mutato] !== " ") {
+          var temp = adat[mutato].split(" ");
 
-        adat[mutato] = "o";
-        adat[adat.length - 1] = false;
-        mutatott[mutato] += 1;
+          adat[mutato] = "o";
+          adat[adat.length - 1] = false;
+          mutatott[mutato] += 1;
 
-        for (var j = 0; j < temp.length; j++) {
-          for (var k = 0; k < adatok.length; k++) {
-            if (temp[j] && temp[j] === adatok[k][mutato]) {
-              adatok[k][mutato] = adatok[k][mutato].replace(temp[j], "");
+          for (var j = 0; j < temp.length; j++) {
+            for (var k = 0; k < adatok.length; k++) {
+              if (adatok[k][mutato].split(" ").includes(temp[j])) {
+                adatok[k][mutato] = adatok[k][mutato].replace(temp[j], "");
+              }
             }
           }
         }
@@ -269,7 +271,11 @@ function szamirto() {
     let halmaz = [];
 
     for (let adat of adatok) {
-      if (adat[jatekos] !== "x" && adat[jatekos] !== " ") {
+      if (
+        adat[jatekos] !== "x" &&
+        adat[jatekos] !== " " &&
+        adat[jatekos] != "o"
+      ) {
         lista.push(...adat[jatekos].split(" "));
       }
       lista = lista.filter((elem) => elem !== "");
@@ -278,7 +284,7 @@ function szamirto() {
     }
 
     for (let h of halmaz) {
-      if (lista.filter((elem) => elem === h).length === 1) {
+      if (lista.filter((elem) => elem === h).length == 1) {
         for (let adat of adatok) {
           if (adat[jatekos].includes(h)) {
             adat[jatekos] = "o";
@@ -309,4 +315,50 @@ function modifyClueList() {
 
   var modifiedClueListString = JSON.stringify(existingClueListArray);
   localStorage.setItem("clueList", modifiedClueListString);
+}
+
+function advancedoszlop() {
+  for (let jatekos = 1; jatekos <= maxindex; jatekos++) {
+    let lista = [];
+    for (var j = 0; j < adatok.length; j++) {
+      var adat2 = adatok[j];
+      lista.push(adat2[jatekos]);
+    }
+
+    if (
+      lista.filter((elem) => elem == "x").length ==
+      nyomok.length - maxmutatott[jatekos]
+    ) {
+      for (var i = 0; i < adatok.length; i++) {
+        var adat = adatok[i];
+        if (adat[jatekos] != "x" && adat[jatekos] != "o") {
+          adat[jatekos] = "o";
+          adat[fejlec.length - 1] = false;
+          mutatott[jatekos]++;
+        }
+      }
+    }
+  }
+}
+
+console.log(mutatott);
+console.log(maxmutatott);
+bemenetek2 = JSON.parse(localStorage.getItem("clueList"));
+
+function generateTable() {
+  const table = document.getElementById("tablazat3");
+  bemenetek2.forEach((subarray) => {
+    const row = document.createElement("tr");
+    for (let i = 0; i < 5; i++) {
+      const cell = document.createElement("td");
+      if (subarray.length === 6 && subarray[i] == subarray[5]) {
+        cell.textContent = subarray[i];
+        cell.style.textDecoration = "underline";
+      } else {
+        cell.textContent = subarray[i];
+      }
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  });
 }
