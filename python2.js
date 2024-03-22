@@ -357,6 +357,11 @@ function generateTable() {
       } else {
         cell.textContent = subarray[i];
       }
+      if (subarray[0] == subarray[4] && i == 4) {
+        cell.textContent = "No One";
+      } else {
+        cell.textContent = subarray[i];
+      }
       row.appendChild(cell);
     }
     table.appendChild(row);
