@@ -161,9 +161,7 @@
             This card is in the envelope. Make sure to avoid raising suspicion
             to this information. Try suggesting with other pieces involved.
           </p>
-          <div class="hirdetes">
-            <div class="hirkep"></div>
-          </div>
+
           <span onclick="megmutat2()" class="material-symbols-outlined info2">
             help
           </span>
@@ -210,11 +208,7 @@
 
         <button id="undoButton" class="mainaction">UNDO</button>
       </div>
-      <div class="hird2">
-        <div class="hirdetes2">
-          <div class="hirkep"></div>
-        </div>
-      </div>
+
       <div class="navbar">
         <div class="box">
           <div class="item active">
@@ -379,6 +373,7 @@
       medenceadat();
       xsor();
       xoszlop();
+
       bemenetek = JSON.parse(localStorage.getItem("clueList"));
       for (var k = 0; k < bemenetek.length; k++) {
         sor = bemenetek[k];
@@ -391,6 +386,8 @@
         xsor();
         xoszlop();
       }
+      advancedoszlop();
+      xsor();
       tablazat();
     </script>
 
@@ -482,8 +479,8 @@
         }
 
         if (eszkozlog.length == 1 && lista[1] == "") {
-          let subarray = adatok[i];
           for (let i = 6; i < 12; i++) {
+            let subarray = adatok[i];
             if (adatok[i][subarray.length - 1] == true) {
               lista[1] = adatok[i][0];
             }
@@ -491,8 +488,8 @@
         }
 
         if (helylog.length == 1 && lista[2] == "") {
-          let subarray = adatok[i];
           for (let i = 12; i < adatok.length; i++) {
+            let subarray = adatok[i];
             if (adatok[i][subarray.length - 1] == true) {
               lista[2] = adatok[i][0];
             }
@@ -603,6 +600,20 @@
           }
         }
       }
+    </script>
+    <script>
+      // Add event listeners to the table rows
+      document.querySelectorAll("#tablazat tr").forEach((row) => {
+        row.addEventListener("click", () => {
+          // Remove the highlight from all rows
+          document.querySelectorAll("#tablazat tr").forEach((row) => {
+            row.classList.remove("highlight");
+          });
+
+          // Highlight the clicked row
+          row.classList.add("highlight");
+        });
+      });
     </script>
   </body>
 </html>
